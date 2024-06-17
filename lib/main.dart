@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tes2_ambw/masuk.dart';
 import 'dart:async';
-
-import './main_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +32,7 @@ class SplashScreenState extends State<MyHomePage> {
     Timer(const Duration(seconds: 4),  
         () => Navigator.pushReplacement(context,  
         MaterialPageRoute(builder:  
-          (context) => MainHome()  
+          (context) => const Masuk()  
         )
       )  
     );
