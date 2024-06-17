@@ -57,10 +57,10 @@ class _MainHome extends State<MainHome>
           selectedFontSize: 12,
           type: BottomNavigationBarType.fixed,
           unselectedItemColor: const Color.fromARGB(255, 72, 72, 72),
-          selectedIconTheme: const IconThemeData(color: Color.fromRGBO(6, 99, 220, 1)),
-          selectedItemColor: const Color.fromRGBO(6, 99, 220, 1),
+          selectedIconTheme: const IconThemeData(color: Color.fromRGBO(47, 91, 143, 1)),
+          selectedItemColor: const Color.fromRGBO(47, 91, 143, 1),
           selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-          unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          // unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined),

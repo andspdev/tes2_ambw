@@ -30,7 +30,7 @@ class SplashScreenState extends State<MyHomePage> {
   @override  
   void initState() {  
     super.initState();  
-    Timer(const Duration(seconds: 3),  
+    Timer(const Duration(seconds: 4),  
         () => Navigator.pushReplacement(context,  
         MaterialPageRoute(builder:  
           (context) => MainHome()  
@@ -45,7 +45,15 @@ class SplashScreenState extends State<MyHomePage> {
       title: 'Test 2 AMBW',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255)),
-      home: Scaffold()
+      home: Scaffold(
+        body: Center(
+          child: SizedBox(
+            width: 230, // Atur lebar gambar
+            height: 230, // Atur tinggi gambar
+            child: Image.asset('assets/logo-petra-news.jpg'),
+          ),
+        ),
+      )
     );
   }  
 }
