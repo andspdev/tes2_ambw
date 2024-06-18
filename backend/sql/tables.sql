@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS `users` (
     `email` varchar(100) NOT NULL,
     `password` varchar(255) NOT NULL,
     `jurusan` varchar(80) NOT NULL,
-    `profile_pic` varchar(50) NOT NULL,
+    `profile_pic` varchar(50) NULL,
     `login_terakhir` datetime NULL,
     `created_at` datetime NOT NULL DEFAULT current_timestamp(),
     `updated_at` datetime NULL,
