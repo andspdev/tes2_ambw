@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tes2_ambw/masuk.dart';
+import './masuk.dart';
 import 'dart:async';
 
 void main() {
