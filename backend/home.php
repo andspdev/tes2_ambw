@@ -28,7 +28,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
 
     $berita_highlight = [];
     while($berita = $query_berita_h->fetch(PDO::FETCH_OBJ))
-        $berita_highlight = [
+        $berita_highlight[] = [
             'id' => htmlspecialchars($berita->id),
             'judul_berita' => htmlspecialchars($berita->judul),
             'thumbnail' => htmlspecialchars($berita->thumbnail),
@@ -57,7 +57,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
 
     $berita_bd = [];
     while($berita = $query_berita_bd->fetch(PDO::FETCH_OBJ))
-        $berita_bd = [
+        $berita_bd[] = [
             'id' => htmlspecialchars($berita->id),
             'judul_berita' => htmlspecialchars($berita->judul),
             'thumbnail' => htmlspecialchars($berita->thumbnail),
@@ -86,7 +86,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
 
     $berita_terbaru = [];
     while($berita = $query_berita->fetch(PDO::FETCH_OBJ))
-        $berita_terbaru = [
+        $berita_terbaru[] = [
             'id' => htmlspecialchars($berita->id),
             'judul_berita' => htmlspecialchars($berita->judul),
             'thumbnail' => htmlspecialchars($berita->thumbnail),
@@ -125,3 +125,6 @@ $output = array_merge([
 
 http_response_code($status_code);
 echo json_encode($output, JSON_PRETTY_PRINT);
+
+
+$pdo = null;
