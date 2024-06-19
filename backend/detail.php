@@ -21,8 +21,8 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
             k.id as kategori_id
         FROM `berita` as b
         LEFT JOIN `kategori` as k
-        ON h.id = b.kategori_id
-        WHERE deleted_at IS NULL AND id = ?"
+        ON k.id = b.kategori_id AND k.deleted_at IS NULL
+        WHERE b.deleted_at IS NULL AND b.id = ?"
     );
 
     $fetch_detail->execute([ $id ]);
