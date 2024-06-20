@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tes2_ambw/includes/functions.dart';
+import 'package:tes2_ambw/includes/variables.dart';
 import 'dart:html';
 
 import './main_home.dart';
@@ -24,19 +26,46 @@ class _Masuk extends State<Masuk>
     _passwordController.dispose();
   }
 
-  void loginSubmit() 
-  {
-    if (_formKey.currentState!.validate()) 
-    {
+  // void loginSubmit() 
+  // {
+    // if (_formKey.currentState!.validate()) 
+    // {
       // Proses login
 
+      
+
       // Kalau sukses
-      Navigator.push(
-        context, 
-        MaterialPageRoute(builder: (context) => MainHome())
-      );
+      // Navigator.push(
+      //   context, 
+      //   MaterialPageRoute(builder: (context) => MainHome())
+      // );
+  //   }
+  // }
+
+
+  Future<void> loginSubmit() async 
+  {
+    const String apiUrl = URL_API;
+
+    final Map<String, dynamic> requestBody = {
+      'key1': 'value1',
+      'key2': 'value2',
+    };
+
+    try {
+      final response = await postData(apiUrl, requestBody);
+
+      print(response);
+      
+      // Simpan response ke Shared Preferences
+      // await saveToSharedPreferences(response);
+      
+      
+    } catch (error) {
+      print('Terjadi kesalahan: $error');
     }
   }
+
 
   @override
   Widget build(BuildContext context) 
