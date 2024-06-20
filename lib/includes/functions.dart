@@ -7,8 +7,10 @@ Future<Map<String, dynamic>> postData(String url, Map<String, dynamic> body) asy
   final response = await http.post(
     Uri.parse(url),
 
-    headers: {"Content-Type": "application/json"},
-    body: json.encode(body),
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: body,
   );
 
   if (response.statusCode == 200) {

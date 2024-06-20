@@ -48,18 +48,15 @@ class _Masuk extends State<Masuk>
     const String apiUrl = '$URL_API/masuk.php';
 
     final Map<String, dynamic> requestBody = {
-      'key1': 'value1',
-      'key2': 'value2',
+      'email': _emailController.value.text,
+      'password': _passwordController.value.text,
     };
 
     try {
       final response = await postData(apiUrl, requestBody);
 
-      print(response);
-      
       // Simpan response ke Shared Preferences
       // await saveToSharedPreferences(response);
-      
       
     } catch (error) {
       print('Terjadi kesalahan: $error');
