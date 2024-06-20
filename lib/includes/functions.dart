@@ -66,7 +66,14 @@ Future<Map<String, dynamic>> getSharedPreferences(String user_data) async
   }
 }
 
+
 Future<Map<String, dynamic>> getUserProfile() async {
   Map<String, dynamic> userProfile = await getSharedPreferences(USER_DATA);
   return userProfile;
+}
+
+
+Future<void> clearSharedPreferences() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.clear();
 }
