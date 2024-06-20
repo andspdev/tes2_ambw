@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './includes/variables.dart';
 
 import './fragment/Beranda.dart';
 import './fragment/Profil.dart';
@@ -57,8 +58,8 @@ class _MainHome extends State<MainHome>
           selectedFontSize: 12,
           type: BottomNavigationBarType.fixed,
           unselectedItemColor: const Color.fromARGB(255, 72, 72, 72),
-          selectedIconTheme: const IconThemeData(color: Color.fromRGBO(47, 91, 143, 1)),
-          selectedItemColor: const Color.fromRGBO(47, 91, 143, 1),
+          selectedIconTheme: const IconThemeData(color: COLOR_PRIMARY),
+          selectedItemColor: COLOR_PRIMARY,
           selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           // unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           items: const [
