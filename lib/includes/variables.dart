@@ -1,1 +1,1 @@
-const String URL_API = 'http://ambw.andsp.id/tes2_ambw/';
+const String URL_API = 'https://ambw.andsp.id/test-2/';

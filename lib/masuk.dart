@@ -45,7 +45,7 @@ class _Masuk extends State<Masuk>
 
   Future<void> loginSubmit() async 
   {
-    const String apiUrl = URL_API;
+    const String apiUrl = '$URL_API/masuk.php';
 
     final Map<String, dynamic> requestBody = {
       'key1': 'value1',
