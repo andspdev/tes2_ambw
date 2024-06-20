@@ -24,6 +24,7 @@ Future<Map<String, dynamic>> postData(String url, Map<String, dynamic> body) asy
   }
 }
 
+
 Future<Map<String, dynamic>> getData(String url) async 
 {
   final response = await http.get(Uri.parse(url));
@@ -50,4 +51,22 @@ void showSnackBar(BuildContext context, String text) {
       duration: const Duration(seconds: 2),
     ),
   );
+}
+
+
+Future<Map<String, dynamic>> getSharedPreferences(String user_data) async 
+{
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? userDataString = prefs.getString(user_data);
+
+  if (userDataString != null) {
+    return json.decode(userDataString);
+  } else {
+    throw Exception('User data not found in SharedPreferences');
+  }
+}
+
+Future<Map<String, dynamic>> getUserProfile() async {
+  Map<String, dynamic> userProfile = await getSharedPreferences(USER_DATA);
+  return userProfile;
 }

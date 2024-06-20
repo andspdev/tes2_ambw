@@ -65,7 +65,7 @@ class _Masuk extends State<Masuk>
           else
           {
             // Simpan response ke Shared Preferences
-            await saveToSharedPreferences(response);
+            await saveToSharedPreferences(response['data_user']);
 
             Navigator.push(
               context, 

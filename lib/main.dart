@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tes2_ambw/includes/functions.dart';
+import 'package:tes2_ambw/main_home.dart';
 import './masuk.dart';
 import 'dart:async';
 
@@ -25,18 +27,35 @@ class MyHomePage extends StatefulWidget {
   SplashScreenState createState() => SplashScreenState();  
 }  
 
-class SplashScreenState extends State<MyHomePage> {  
+
+class SplashScreenState extends State<MyHomePage> 
+{  
   @override  
-  void initState() {  
+  void initState()
+  {
     super.initState();  
-    Timer(const Duration(seconds: 4),  
-        () => Navigator.pushReplacement(context,  
-        MaterialPageRoute(builder:  
-          (context) => const Masuk()  
-        )
-      )  
-    );
+
+    Future.delayed(Duration.zero, () async 
+    {
+      try {
+        Map<String, dynamic> userProfile = await getUserProfile();
+        Widget nextPage = userProfile['id'] != null ? MainHome() : const Masuk();
+
+        navigateToNextPage(nextPage);
+
+      } catch (e) 
+      {
+        navigateToNextPage(const Masuk());
+      }
+    });
   }  
+
+  void navigateToNextPage(Widget page) {
+    Timer(const Duration(seconds: 4), () => Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => page)
+    ));
+  }
 
   @override  
   Widget build(BuildContext context) {  
