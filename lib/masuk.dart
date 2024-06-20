@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tes2_ambw/includes/functions.dart';
-import 'package:tes2_ambw/includes/variables.dart';
-import 'package:tes2_ambw/main_home.dart';
+import './includes/functions.dart';
+import './includes/variables.dart';
+import './main_home.dart';
 
 class Masuk extends StatefulWidget {
   const Masuk({super.key});
