@@ -12,8 +12,11 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
     $list_kategori = $pdo->prepare(
         "SELECT
             id,
-            nama
-        FROM kategori
+            nama,
+            (
+            SELECT COUNT(id) FROM `berita` WHERE kategori_id = k.id
+            ) as total_berita
+        FROM kategori as k
         WHERE deleted_at IS NULL
         ORDER BY nama ASC
         "
@@ -24,7 +27,8 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
     while($kategori = $list_kategori->fetch(PDO::FETCH_OBJ))
         $kategori_arr[] = [
             'id' => htmlspecialchars($kategori->id),
-            'nama' => htmlspecialchars($kategori->nama)
+            'nama' => htmlspecialchars($kategori->nama),
+            'total_berita' => (int) $kategori->total_berita,
         ];
 
     $output = [
