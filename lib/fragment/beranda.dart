@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:tes2_ambw/includes/functions.dart';
 import 'package:tes2_ambw/includes/variables.dart';
 import 'package:tes2_ambw/layouts/card_iklan.dart';
 import 'package:tes2_ambw/layouts/card_iklan_highlight.dart';
+import 'package:tes2_ambw/layouts/card_iklan_persegi.dart';
 
 class Beranda extends StatefulWidget {
   const Beranda({super.key});
@@ -50,6 +52,7 @@ class _Beranda extends State<Beranda>
                         }
                         
                         var beritaPilihan = snapshot.data!['berita']['highlight'] as List;
+                        var beritaBd = snapshot.data!['berita']['banyak_dilihat'] as List;
                         var beritaTerbaru = snapshot.data!['berita']['terbaru'] as List;
                           
 
@@ -61,7 +64,7 @@ class _Beranda extends State<Beranda>
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               itemCount: beritaPilihan.length,
-                              itemBuilder: (context, index) => cardIklanHighlight(beritaPilihan, index)
+                              itemBuilder: (context, index) => cardIklanHighlight(context, beritaPilihan, index)
                             ),
 
 
@@ -76,6 +79,16 @@ class _Beranda extends State<Beranda>
                                 color: COLOR_BLACK
                               )),
                             ),
+                          
+                            SizedBox(
+                              height: 250, // Atur tinggi ListView sesuai kebutuhan
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: beritaBd.length,
+                                itemBuilder: (context, index) => cardIklanPersegi(context, beritaBd, index),
+                              ),
+                            ),
+
 
 
                             const SizedBox(height: 20),
@@ -96,7 +109,7 @@ class _Beranda extends State<Beranda>
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               itemCount: beritaTerbaru.length,
-                              itemBuilder: (context, index) => cardIklanStandar(beritaTerbaru, index)
+                              itemBuilder: (context, index) => cardIklanStandar(context, beritaTerbaru, index)
                             ),
                           ],
                         );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tes2_ambw/includes/variables.dart';
 
-GestureDetector cardIklanStandar(beritaTerbaru, index) 
+GestureDetector cardIklanStandar(context, beritaTerbaru, index) 
 {
   return GestureDetector(
     onTap: () {
