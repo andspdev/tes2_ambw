@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import './main_home.dart';
-import './lihat_berita.dart';
 
 class EditProfile extends StatefulWidget {
-  const EditProfile({super.key});
+  final Map<String, dynamic> userData;
+
+  const EditProfile({super.key, this.userData=const{}});
   @override
   _EditProfile createState() => _EditProfile();
 }
@@ -22,35 +23,34 @@ class _EditProfile extends State<EditProfile> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Center(
+              Center(
                 child: CircleAvatar(
                   radius: 50,
-                  backgroundImage: AssetImage(
-                      'assets/profile_picture.png'), // Add your image to the assets folder
+                  backgroundImage: AssetImage(widget.userData['profile_pic']),
                 ),
               ),
               SizedBox(height: 20),
-              const Center(
+              Center(
                 child: Column(
                   children: [
                     Text(
-                      'Username',
+                      widget.userData['nama'],
                       style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 20),
                     Text(
-                      'Email: user@example.com',
+                      widget.userData['email'],
                       style: TextStyle(fontSize: 18),
                     ),
                     SizedBox(height: 10),
                     Text(
-                      'Phone: (123) 456-7890',
+                      widget.userData['jurusan'],
                       style: TextStyle(fontSize: 18),
                     ),
                     SizedBox(height: 10),
                     Text(
-                      'Address: 123 Flutter St, Dart City',
+                      widget.userData['login_terakhir'],
                       style: TextStyle(fontSize: 18),
                     ),
                     SizedBox(height: 10),
