@@ -36,7 +36,7 @@ class SplashScreenState extends State<MyHomePage>
   {
     super.initState();  
 
-    Future.delayed(Duration.zero, () async 
+    Future.delayed(const Duration(seconds: 3), () async 
     {
       try {
         Map<String, dynamic> userProfile = await getUserProfile();
