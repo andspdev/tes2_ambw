@@ -13,6 +13,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
 
     $fetch_detail = $pdo->prepare(
         "SELECT
+            b.id,
             judul,
             deskripsi,
             views,
@@ -45,7 +46,8 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
                     'id' => htmlspecialchars($fetch_detail->kategori_id),
                     'nama' => htmlspecialchars($fetch_detail->nama_kategori)
                 ],
-                'dibookmark' => !($fetch_detail->tersimpan_bookmark == 'tidak')
+                'dibookmark' => !($fetch_detail->tersimpan_bookmark == 'tidak'),
+                'thumbnail' => 'https://ambw.andsp.id/test-2/thumbnail.php?berita_id='.htmlspecialchars($fetch_detail->id),
             ]
         ];
     }
