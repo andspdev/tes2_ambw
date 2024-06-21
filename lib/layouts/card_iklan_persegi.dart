@@ -6,7 +6,7 @@ Widget cardIklanPersegi(context, berita, int index)
 {
   return GestureDetector(
     onTap: () {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ViewNews(berita: berita[index])),
       );

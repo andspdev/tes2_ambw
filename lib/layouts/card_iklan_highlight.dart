@@ -6,7 +6,7 @@ GestureDetector cardIklanHighlight(context, berita, index) {
   return GestureDetector(
     onTap: () {
       
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ViewNews(berita: berita[index])),
       );

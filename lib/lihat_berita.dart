@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './main_home.dart';
+import 'package:tes2_ambw/fragment/Beranda.dart';
 
 class ViewNews extends StatefulWidget {
   final Map<String, dynamic> berita;
@@ -15,7 +15,7 @@ class _ViewNews extends State<ViewNews> {
   Widget build(BuildContext context) {
 
     // Kalau mau ambil id berita
-    // print("\n\nID Berita: ${widget.berita['id']}\n\n");
+    print("\n\nID Berita: ${widget.berita['id']}\n\n");
 
     return MaterialApp(
       title: 'Edit Profil | Test 2 AMBW',
@@ -67,10 +67,10 @@ class _ViewNews extends State<ViewNews> {
               SizedBox(height: 30), // Space between profile details and button
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => MainHome()),
+                        builder: (context) => const Beranda()),
                   );
                 },
                 child: Text('Back to Home'),
