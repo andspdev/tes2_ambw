@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:tes2_ambw/includes/variables.dart';
 import 'package:tes2_ambw/lihat_berita.dart';
 
@@ -17,15 +18,17 @@ GestureDetector cardIklanHighlight(context, berita, index) {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           // Thumbnail
-          Container(
+          SizedBox(
+            width: double.infinity,
             height: 200,
-            decoration: BoxDecoration(
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(12.0),
-              image: DecorationImage(
-                image: NetworkImage(berita[index]['thumbnail']),
+              child: FadeInImage.assetNetwork(
+                placeholder: ASSET_IMG_THUMBNAIL_LOADER,
+                image: berita[index]['thumbnail'],
                 fit: BoxFit.cover,
               ),
-            ),
+            )
           ),
 
           // Details

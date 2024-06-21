@@ -20,10 +20,13 @@ GestureDetector cardIklanStandar(context, beritaTerbaru, index)
             width: 80,
             height: 80,
             margin: const EdgeInsets.only(right: 12.0),
-            decoration: BoxDecoration(
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(12.0),
-              image: DecorationImage(
-                image: NetworkImage(beritaTerbaru[index]['thumbnail']),
+              child: FadeInImage.assetNetwork(
+                placeholder: ASSET_IMG_THUMBNAIL_LOADER,
+                image: beritaTerbaru[index]['thumbnail'],
+                width: 80,
+                height: 80,
                 fit: BoxFit.cover,
               ),
             ),

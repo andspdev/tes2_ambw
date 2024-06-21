@@ -35,12 +35,13 @@ Widget cardIklanPersegi(context, berita, int index)
               child: SizedBox(
                 height: 120,
                 width: double.infinity,
-                child: Image.network(
-                  berita[index]['thumbnail'],
+                child: FadeInImage.assetNetwork(
+                  placeholder: ASSET_IMG_THUMBNAIL_LOADER, 
+                  image: berita[index]['thumbnail'],
                   width: 120,
                   height: 120,
                   fit: BoxFit.cover,
-                ),
+                )
               ),
             ),
 
