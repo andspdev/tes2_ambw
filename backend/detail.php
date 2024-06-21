@@ -40,7 +40,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
                 'judul' => htmlspecialchars($fetch_detail->judul),
                 'deskripsi' => htmlspecialchars($fetch_detail->deskripsi),
                 'views' => htmlspecialchars($fetch_detail->views),
-                'dibuat_pada' => htmlspecialchars($fetch_detail->dibuat_pada),
+                'dibuat_pada' => htmlspecialchars(tanggalIndo($fetch_detail->dibuat_pada, true)),
                 'kategori' => [
                     'id' => htmlspecialchars($fetch_detail->kategori_id),
                     'nama' => htmlspecialchars($fetch_detail->nama_kategori)

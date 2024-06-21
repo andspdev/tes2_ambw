@@ -10,3 +10,6 @@ try {
 } catch(\PDOException $error) {
     die('Error database: '.$error->getMessage());
 }
+
+
+include 'functions.php';

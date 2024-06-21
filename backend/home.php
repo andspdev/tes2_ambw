@@ -32,7 +32,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
             'id' => htmlspecialchars($berita->id),
             'judul_berita' => htmlspecialchars($berita->judul),
             'thumbnail' => 'https://ambw.andsp.id/test-2/thumbnail.php?berita_id='.htmlspecialchars($berita->id),
-            'dibuat_pada' => htmlspecialchars($berita->created_at),
+            'dibuat_pada' => htmlspecialchars(tanggalIndo($berita->created_at, true)),
             'nama_kategori' => htmlspecialchars($berita->nama_kategori)
         ];
     // End berita highlight
@@ -61,7 +61,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
             'id' => htmlspecialchars($berita->id),
             'judul_berita' => htmlspecialchars($berita->judul),
             'thumbnail' => 'https://ambw.andsp.id/test-2/thumbnail.php?berita_id='.htmlspecialchars($berita->id),
-            'dibuat_pada' => htmlspecialchars($berita->created_at),
+            'dibuat_pada' => htmlspecialchars(tanggalIndo($berita->created_at, true)),
             'nama_kategori' => htmlspecialchars($berita->nama_kategori)
         ];
     // End Paling banyak dilihat
@@ -90,7 +90,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
             'id' => htmlspecialchars($berita->id),
             'judul_berita' => htmlspecialchars($berita->judul),
             'thumbnail' => 'https://ambw.andsp.id/test-2/thumbnail.php?berita_id='.htmlspecialchars($berita->id),
-            'dibuat_pada' => htmlspecialchars($berita->created_at),
+            'dibuat_pada' => htmlspecialchars(tanggalIndo($berita->created_at, true)),
             'nama_kategori' => htmlspecialchars($berita->nama_kategori)
         ];
     // End berita terbaru

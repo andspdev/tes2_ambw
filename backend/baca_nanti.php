@@ -69,10 +69,10 @@ switch($act)
                 ON br.id = bk.berita_id
                 LEFT JOIN kategori as k
                 ON k.id = br.kategori_id AND k.deleted_at IS NULL
-                WHERE br.deleted_at IS NULL
+                WHERE br.deleted_at IS NULL AND users_id = ?
                 ORDER BY br.created_at DESC"
             );
-            $select_berita->execute();
+            $select_berita->execute([ $user_id ]);
 
             $berita_terbaru = [];
             while($berita = $select_berita->fetch(PDO::FETCH_OBJ))
@@ -80,7 +80,7 @@ switch($act)
                     'id' => htmlspecialchars($berita->id),
                     'judul_berita' => htmlspecialchars($berita->judul),
                     'thumbnail' => 'https://ambw.andsp.id/test-2/thumbnail.php?berita_id='.htmlspecialchars($berita->id),
-                    'dibuat_pada' => htmlspecialchars($berita->created_at),
+                    'dibuat_pada' => htmlspecialchars(tanggalIndo($berita->created_at, true)),
                     'nama_kategori' => htmlspecialchars($berita->nama_kategori)
                 ];
 
