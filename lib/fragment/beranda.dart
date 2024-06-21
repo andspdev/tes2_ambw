@@ -14,7 +14,7 @@ class _Beranda extends State<Beranda>
   Widget build(BuildContext context) 
   {
     return const MaterialApp(
-      title: 'Beranda | Tes 2 AMBW',
+      title: 'Beranda | Test 2 AMBW',
       debugShowCheckedModeBanner: false,
       home: null
     );

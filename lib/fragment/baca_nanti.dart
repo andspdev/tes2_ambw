@@ -14,7 +14,7 @@ class _BacaNanti extends State<BacaNanti>
   Widget build(BuildContext context) 
   {
     return const MaterialApp(
-      title: 'Baca Nanti | Tes 2 AMBW',
+      title: 'Baca Nanti | Test 2 AMBW',
       debugShowCheckedModeBanner: false,
       home: null
     );

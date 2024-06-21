@@ -14,7 +14,7 @@ class _Kategori extends State<Kategori>
   Widget build(BuildContext context) 
   {
     return const MaterialApp(
-      title: 'Kategori | Tes 2 AMBW',
+      title: 'Kategori | Test 2 AMBW',
       debugShowCheckedModeBanner: false,
       home: null
     );
