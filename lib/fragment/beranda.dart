@@ -48,7 +48,9 @@ class _Beranda extends State<Beranda>
                         
                         if (snapshot.hasError) 
                         {
-                          return const Text('Terjadi kesalahan saat mengambil data berita.');
+                          return const Center(
+                            child: Text('Terjadi kesalahan saat mengambil data berita.'),
+                          );
                         }
                         
                         var beritaPilihan = snapshot.data!['berita']['highlight'] as List;
