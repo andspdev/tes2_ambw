@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:tes2_ambw/includes/variables.dart';
+import 'package:tes2_ambw/lihat_berita.dart';
 
 Widget cardIklanPersegi(context, berita, int index) 
 {
   return GestureDetector(
     onTap: () {
-
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ViewNews(berita: berita[index])),
+      );
     },
     child: SizedBox(
       height: 250,

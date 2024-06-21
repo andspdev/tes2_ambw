@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:tes2_ambw/includes/variables.dart';
+import 'package:tes2_ambw/lihat_berita.dart';
 
 GestureDetector cardIklanStandar(context, beritaTerbaru, index) 
 {
   return GestureDetector(
     onTap: () {
-
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ViewNews(berita: beritaTerbaru[index])),
+      );
     },
     child: Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),

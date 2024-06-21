@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import './main_home.dart';
 
 class ViewNews extends StatefulWidget {
-  const ViewNews({super.key});
+  final Map<String, dynamic> berita;
+
+  const ViewNews({Key? key, required this.berita}) : super(key: key);
 
   @override
   _ViewNews createState() => _ViewNews();
@@ -11,6 +13,10 @@ class ViewNews extends StatefulWidget {
 class _ViewNews extends State<ViewNews> {
   @override
   Widget build(BuildContext context) {
+
+    // Kalau mau ambil id berita
+    // print("\n\nID Berita: ${widget.berita['id']}\n\n");
+
     return MaterialApp(
       title: 'Edit Profil | Test 2 AMBW',
       debugShowCheckedModeBanner: false,
