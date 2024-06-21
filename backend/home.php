@@ -31,7 +31,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
         $berita_highlight[] = [
             'id' => htmlspecialchars($berita->id),
             'judul_berita' => htmlspecialchars($berita->judul),
-            'thumbnail' => htmlspecialchars($berita->thumbnail),
+            'thumbnail' => './foto/'.htmlspecialchars($berita->thumbnail),
             'dibuat_pada' => htmlspecialchars($berita->created_at),
             'nama_kategori' => htmlspecialchars($berita->nama_kategori)
         ];
@@ -51,7 +51,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
         LEFT JOIN kategori as k
         ON k.id = b.kategori_id AND k.deleted_at IS NULL
         WHERE is_highlight = 1 AND b.deleted_at IS NULL
-        ORDER BY views DESC LIMIT 1;"
+        ORDER BY views DESC LIMIT 10;"
     );
     $query_berita_bd->execute();
 
@@ -60,7 +60,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
         $berita_bd[] = [
             'id' => htmlspecialchars($berita->id),
             'judul_berita' => htmlspecialchars($berita->judul),
-            'thumbnail' => htmlspecialchars($berita->thumbnail),
+            'thumbnail' => './foto/'.htmlspecialchars($berita->thumbnail),
             'dibuat_pada' => htmlspecialchars($berita->created_at),
             'nama_kategori' => htmlspecialchars($berita->nama_kategori)
         ];
@@ -89,7 +89,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
         $berita_terbaru[] = [
             'id' => htmlspecialchars($berita->id),
             'judul_berita' => htmlspecialchars($berita->judul),
-            'thumbnail' => htmlspecialchars($berita->thumbnail),
+            'thumbnail' => './foto/'.htmlspecialchars($berita->thumbnail),
             'dibuat_pada' => htmlspecialchars($berita->created_at),
             'nama_kategori' => htmlspecialchars($berita->nama_kategori)
         ];
