@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tes2_ambw/includes/functions.dart';
+import 'package:tes2_ambw/includes/variables.dart';
 import './main_home.dart';
 import './masuk.dart';
 import 'dart:async';
@@ -62,13 +63,13 @@ class SplashScreenState extends State<MyHomePage>
     return MaterialApp(
       title: 'Test 2 AMBW',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255)),
+      theme: ThemeData(scaffoldBackgroundColor: COLOR_WHITE),
       home: Scaffold(
         body: Center(
           child: SizedBox(
             width: 230, // Atur lebar gambar
             height: 230, // Atur tinggi gambar
-            child: Image.asset('assets/logo-petra-news.jpg'),
+            child: Image.asset(ASSET_IMG_LOGO),
           ),
         ),
       )

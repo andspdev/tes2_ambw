@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tes2_ambw/fragment/pencarian.dart';
+import 'package:tes2_ambw/includes/functions.dart';
 import './includes/variables.dart';
 
 import './fragment/Beranda.dart';
-import './fragment/Profil.dart';
+import 'fragment/profil.dart';
 import './fragment/baca_nanti.dart';
 import './fragment/kategori.dart';
 
@@ -15,20 +17,22 @@ class MainHome extends StatefulWidget
 
 class _MainHome extends State<MainHome> 
 {
-  int _selectedTab = 0;
+  int _selectedTab = 2;
   String titleApp = 'Beranda';
 
   final List<Widget> _pages = [
-    const Beranda(),
     const Kategori(),
+    const Pencarian(),
+    const Beranda(),
     const BacaNanti(),
     const Profil()
   ];
 
   final List<String> _title = [
-    'Beranda',
     'Kategori',
-    'Baca Nanti',
+    'Pencarian',
+    'Beranda',
+    'Tersimpan',
     'Profil'
   ];
 
@@ -45,12 +49,12 @@ class _MainHome extends State<MainHome>
     return MaterialApp(
       title: '$titleApp | Test 2 AMBW',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255)),
+      theme: ThemeData(scaffoldBackgroundColor: COLOR_WHITE),
       home: Scaffold(
         body: _pages[_selectedTab],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedTab,
-          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+          backgroundColor: COLOR_WHITE,
           onTap: (index) => _changeTab(index),
           mouseCursor: SystemMouseCursors.grab,
           iconSize: 20,
@@ -62,22 +66,26 @@ class _MainHome extends State<MainHome>
           selectedItemColor: COLOR_PRIMARY,
           selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           // unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              label: 'Beranda'
+              icon: const Icon(Icons.menu),
+              label: _title[0]
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
-              label: 'Kategori'
+              icon: const Icon(Icons.search),
+              label: _title[1]
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark_border),
-              label: 'Baca Nanti'
+              icon: const Icon(Icons.home_outlined),
+              label: _title[2]
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              label: 'Profil'
+              icon: const Icon(Icons.bookmark_border),
+              label: _title[3]
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.person_outline),
+              label: _title[4]
             ),
           ],
         ),

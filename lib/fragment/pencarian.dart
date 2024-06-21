@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:tes2_ambw/includes/functions.dart';
 import 'package:tes2_ambw/includes/variables.dart';
 
-class Kategori extends StatefulWidget {
-  const Kategori({super.key});
+class Pencarian extends StatefulWidget {
+  const Pencarian({super.key});
 
   @override
-  _Kategori createState() => _Kategori();
+  _Pencarian createState() => _Pencarian();
 }
 
 
-class _Kategori extends State<Kategori>
+class _Pencarian extends State<Pencarian>
 {
   @override
   Widget build(BuildContext context) 
   {
     return MaterialApp(
-      title: 'Kategori | Tes 2 AMBW',
+      title: 'Pencarian | Tes 2 AMBW',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: customAppBar(context),

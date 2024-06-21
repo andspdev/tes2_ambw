@@ -77,3 +77,53 @@ Future<void> clearSharedPreferences() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   await prefs.clear();
 }
+
+
+PreferredSize customAppBar(BuildContext context) 
+{
+  return PreferredSize(
+    preferredSize: const Size.fromHeight(60.0),
+    child: Container(
+      decoration: const BoxDecoration(
+        color: COLOR_WHITE,
+        border: Border(
+          bottom: BorderSide(
+            color: COLOR_BORDER_GREY, // Warna border
+            width: 1.0, // Ketebalan border
+          ),
+        ),
+      ),
+      child: SafeArea(
+        child: Container(
+          height: 60.0, // Set the height of the custom AppBar
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Image.asset(
+                  ASSET_IMG_LOGO,
+                  height: 28,
+                  fit: BoxFit.contain,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.logout_outlined,
+                    color: Color.fromARGB(255, 35, 35, 35),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/search');
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}

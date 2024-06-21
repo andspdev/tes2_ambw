@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tes2_ambw/includes/functions.dart';
+import 'package:tes2_ambw/includes/variables.dart';
 
 class BacaNanti extends StatefulWidget {
   const BacaNanti({super.key});
@@ -13,10 +15,14 @@ class _BacaNanti extends State<BacaNanti>
   @override
   Widget build(BuildContext context) 
   {
-    return const MaterialApp(
-      title: 'Baca Nanti | Tes 2 AMBW',
+    return MaterialApp(
+      title: 'Tersimpan | Tes 2 AMBW',
       debugShowCheckedModeBanner: false,
-      home: null
+      home: Scaffold(
+        appBar: customAppBar(context),
+        backgroundColor: COLOR_WHITE,
+        body: null,
+      )
     );
   }
 }
