@@ -16,7 +16,7 @@ class _BacaNanti extends State<BacaNanti>
   Widget build(BuildContext context) 
   {
     return MaterialApp(
-      title: 'Tersimpan | Tes 2 AMBW',
+      title: 'Baca Nanti | Test 2 AMBW',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: customAppBar(context),

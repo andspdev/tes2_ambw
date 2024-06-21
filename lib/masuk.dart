@@ -88,7 +88,7 @@ class _Masuk extends State<Masuk>
   Widget build(BuildContext context) 
   {
     return MaterialApp(
-      title: 'Masuk | Tes 2 AMBW',
+      title: 'Masuk | Test 2 AMBW',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: const Color.fromRGBO(255, 255, 255, 1),

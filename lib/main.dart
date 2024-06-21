@@ -52,7 +52,7 @@ class SplashScreenState extends State<MyHomePage>
   }  
 
   void navigateToNextPage(Widget page) {
-    Timer(const Duration(seconds: 4), () => Navigator.pushReplacement(
+    Timer(const Duration(seconds: 0), () => Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => page)
     ));
