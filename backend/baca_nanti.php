@@ -79,7 +79,7 @@ switch($act)
                 $berita_terbaru[] = [
                     'id' => htmlspecialchars($berita->id),
                     'judul_berita' => htmlspecialchars($berita->judul),
-                    'thumbnail' => './foto/'.htmlspecialchars($berita->thumbnail),
+                    'thumbnail' => 'https://ambw.andsp.id/test-2/thumbnail.php?berita_id='.htmlspecialchars($berita->id),
                     'dibuat_pada' => htmlspecialchars($berita->created_at),
                     'nama_kategori' => htmlspecialchars($berita->nama_kategori)
                 ];
