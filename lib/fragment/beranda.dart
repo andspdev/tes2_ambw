@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:tes2_ambw/includes/functions.dart';
 import 'package:tes2_ambw/includes/variables.dart';
 import 'package:tes2_ambw/layouts/card_iklan.dart';
+import 'package:tes2_ambw/layouts/card_iklan_highlight.dart';
 
 class Beranda extends StatefulWidget {
   const Beranda({super.key});
@@ -58,7 +57,18 @@ class _Beranda extends State<Beranda>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             // Berita Terbaru
-                            const Padding(
+                            ListView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: beritaPilihan.length,
+                              itemBuilder: (context, index) => cardIklanHighlight(beritaPilihan, index)
+                            ),
+
+
+                          const SizedBox(height: 5),
+
+
+                           const Padding(
                               padding: EdgeInsets.only(bottom: 10),
                               child: Text('Berita Pilihan', style: TextStyle(
                                 fontSize: 15,
@@ -68,77 +78,7 @@ class _Beranda extends State<Beranda>
                             ),
 
 
-                            ListView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: beritaPilihan.length,
-                              itemBuilder: (context, index) 
-                              {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                                    children: <Widget>[
-                                      // Thumbnail
-                                      Container(
-                                        height: 150,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(12.0),
-                                          image: DecorationImage(
-                                            image: NetworkImage(beritaPilihan[index]['thumbnail']),
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-
-                                      // Details
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            // Judul (dibatasi 2 baris)
-                                            Text(
-                                              beritaPilihan[index]['judul_berita'],
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 16.0,
-                                              ),
-                                            ),
-
-                                            // Waktu dibuat
-                                            Text(
-                                              "${beritaPilihan[index]['dibuat_pada']}",
-                                              style: const TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12.0,
-                                              ),
-                                            ),
-
-                                            // Kategori
-                                            Text(
-                                              "${beritaPilihan[index]['nama_kategori']}",
-                                              style: const TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12.0,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                            ),
-
-
-
                             const SizedBox(height: 20),
-
-
 
 
                             // Berita Terbaru
@@ -156,9 +96,7 @@ class _Beranda extends State<Beranda>
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               itemCount: beritaTerbaru.length,
-                              itemBuilder: (context, index) {
-                                return cardIklanStandar(beritaTerbaru, index);
-                              },
+                              itemBuilder: (context, index) => cardIklanStandar(beritaTerbaru, index)
                             ),
                           ],
                         );
