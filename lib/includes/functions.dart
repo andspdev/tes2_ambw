@@ -171,3 +171,19 @@ PreferredSize customAppBar(BuildContext context)
     ),
   );
 }
+
+Center loaderSmallCenter() {
+  return const Center(
+    child: Padding(
+      padding: EdgeInsets.symmetric(vertical: 20),
+      child: SizedBox(
+        width: 20,
+        height: 20,
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(COLOR_PRIMARY),
+          strokeWidth: 2.5,
+        ),
+      ),
+    ),
+  );
+}

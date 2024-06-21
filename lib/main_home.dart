@@ -68,7 +68,7 @@ class _MainHome extends State<MainHome> {
           unselectedFontSize: 12,
           selectedFontSize: 12,
           type: BottomNavigationBarType.fixed,
-          unselectedItemColor: const Color.fromARGB(255, 72, 72, 72),
+          unselectedItemColor: COLOR_BLACK,
           selectedIconTheme: const IconThemeData(color: COLOR_PRIMARY),
           selectedItemColor: COLOR_PRIMARY,
           selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
