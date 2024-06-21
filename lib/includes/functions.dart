@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tes2_ambw/masuk.dart';
 import './variables.dart';
 
 
@@ -79,6 +80,12 @@ Future<void> clearSharedPreferences() async {
 }
 
 
+Future<void> removeValueFromSharedPreferences(String key) async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.remove(key);
+}
+
+
 PreferredSize customAppBar(BuildContext context) 
 {
   return PreferredSize(
@@ -115,8 +122,45 @@ PreferredSize customAppBar(BuildContext context)
                     Icons.logout_outlined,
                     color: Color.fromARGB(255, 35, 35, 35),
                   ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/search');
+                  onPressed: () 
+                  {
+                    
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Akhiri Session'),
+                          backgroundColor: Colors.grey[200],
+                          content: const Text('Anda yakin ingin keluar?'),
+                          actions: <Widget>[
+                            TextButton(
+                              style: ButtonStyle(
+                                foregroundColor: MaterialStateProperty.all<Color>(COLOR_PRIMARY), // Ubah warna teks tombol
+                              ),
+                              child: const Text('Tidak'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            TextButton(
+                              style: ButtonStyle(
+                                foregroundColor: MaterialStateProperty.all<Color>(COLOR_PRIMARY), // Ubah warna teks tombol
+                              ),
+                              child: const Text('Ya'),
+                              onPressed: () {
+                                removeValueFromSharedPreferences(USER_DATA);
+                                Navigator.of(context).pop();
+                                Navigator.push(
+                                  context, 
+                                  MaterialPageRoute(builder: (context) => const Masuk())
+                                );
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+
                   },
                 ),
               ),
