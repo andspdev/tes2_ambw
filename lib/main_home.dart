@@ -8,17 +8,18 @@ import 'fragment/profil.dart';
 import './fragment/baca_nanti.dart';
 import './fragment/kategori.dart';
 
+class MainHome extends StatefulWidget {
+  final int initialIndex;
 
-class MainHome extends StatefulWidget 
-{
+  MainHome({Key? key, this.initialIndex = 2}) : super(key: key);
+
   @override
   _MainHome createState() => _MainHome();
 }
 
-class _MainHome extends State<MainHome> 
-{
-  int _selectedTab = 2;
-  String titleApp = 'Beranda';
+class _MainHome extends State<MainHome> {
+  late int _selectedTab;
+  late String titleApp;
 
   final List<Widget> _pages = [
     const Kategori(),
@@ -36,6 +37,13 @@ class _MainHome extends State<MainHome>
     'Profil'
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    _selectedTab = widget.initialIndex;
+    titleApp = _title[_selectedTab];
+  }
+
   _changeTab(int index) {
     setState(() {
       _selectedTab = index;
@@ -45,7 +53,6 @@ class _MainHome extends State<MainHome>
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: '$titleApp | Test 2 AMBW',
       debugShowCheckedModeBanner: false,
@@ -68,25 +75,15 @@ class _MainHome extends State<MainHome>
           // unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           items: [
             BottomNavigationBarItem(
-              icon: const Icon(Icons.menu),
-              label: _title[0]
-            ),
+                icon: const Icon(Icons.menu), label: _title[0]),
             BottomNavigationBarItem(
-              icon: const Icon(Icons.search),
-              label: _title[1]
-            ),
+                icon: const Icon(Icons.search), label: _title[1]),
             BottomNavigationBarItem(
-              icon: const Icon(Icons.home_outlined),
-              label: _title[2]
-            ),
+                icon: const Icon(Icons.home_outlined), label: _title[2]),
             BottomNavigationBarItem(
-              icon: const Icon(Icons.bookmark_border),
-              label: _title[3]
-            ),
+                icon: const Icon(Icons.bookmark_border), label: _title[3]),
             BottomNavigationBarItem(
-              icon: const Icon(Icons.person_outline),
-              label: _title[4]
-            ),
+                icon: const Icon(Icons.person_outline), label: _title[4]),
           ],
         ),
       ),
