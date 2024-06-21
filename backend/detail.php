@@ -9,6 +9,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
 {
     $status_code = 200;
     $id = $_GET['id'] ?? null;
+    $user_id = $_GET['user_id'] ?? null;
 
     $fetch_detail = $pdo->prepare(
         "SELECT
@@ -18,10 +19,13 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
             thumbnail,
             b.created_at as dibuat_pada,
             k.nama as nama_kategori,
-            k.id as kategori_id
+            k.id as kategori_id,
+            IFNULL(bk.id, 'tidak') as tersimpan_bookmark
         FROM `berita` as b
         LEFT JOIN `kategori` as k
         ON k.id = b.kategori_id AND k.deleted_at IS NULL
+        LEFT JOIN `bookmark` as bk
+        ON bk.berita_id = b.id AND users_id = \"".addslashes($user_id)."\"
         WHERE b.deleted_at IS NULL AND b.id = ?"
     );
 
@@ -41,6 +45,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) == 'get')
                     'id' => htmlspecialchars($fetch_detail->kategori_id),
                     'nama' => htmlspecialchars($fetch_detail->nama_kategori)
                 ],
+                'dibookmark' => !($fetch_detail->tersimpan_bookmark == 'tidak')
             ]
         ];
     }
