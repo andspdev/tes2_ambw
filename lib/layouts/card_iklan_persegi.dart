@@ -46,7 +46,7 @@ Widget cardIklanPersegi(context, berita, int index)
 
         
             Container(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget> [
