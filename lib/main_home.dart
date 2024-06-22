@@ -17,7 +17,7 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHome extends State<MainHome> {
-  late int _selectedTab= 3;
+  late int _selectedTab = 3;
   late String titleApp;
 
   final List<Widget> _pages = [
