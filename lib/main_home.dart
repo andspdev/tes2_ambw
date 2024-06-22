@@ -17,7 +17,7 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHome extends State<MainHome> {
-  late int _selectedTab;
+  late int _selectedTab= 3;
   late String titleApp;
 
   final List<Widget> _pages = [
@@ -42,9 +42,12 @@ class _MainHome extends State<MainHome> {
       titleApp = _title[index];
     });
   }
+  
+  
 
   @override
   Widget build(BuildContext context) {
+    _changeTab(_selectedTab);
     return MaterialApp(
       title: '$titleApp | Test 2 AMBW',
       debugShowCheckedModeBanner: false,
