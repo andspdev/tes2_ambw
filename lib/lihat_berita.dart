@@ -127,17 +127,97 @@ class _ViewNews extends State<ViewNews> {
                     fit: BoxFit.cover,
                     height: MediaQuery.of(context).size.height * 0.5,
                   ),
-                  
+
                   //SPACING
                   SizedBox(height: 50),
                 ])),
 
                 //CONTENT
-                Padding(
-                  padding: EdgeInsets.all(0),
-                  child: Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus arcu felis. Tellus elementum sagittis vitae et leo duis. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Cras fermentum odio eu feugiat pretium nibh ipsum. Felis donec et odio pellentesque. Sollicitudin aliquam ultrices sagittis orci a. Nec dui nunc mattis enim. Tortor aliquam nulla facilisi cras. Mauris a diam maecenas sed enim ut sem viverra. Eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna. Convallis a cras semper auctor neque vitae. Pulvinar neque laoreet suspendisse interdum consectetur libero. Tellus mauris a diam maecenas sed enim ut. Est velit egestas dui id ornare arcu odio. Dui sapien eget mi proin sed. Faucibus in ornare quam viverra orci sagittis eu volutpat odio. Eu nisl nunc mi ipsum faucibus vitae. Gravida quis blandit turpis cursus in hac habitasse. Diam in arcu cursus euismod quis viverra. Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Arcu risus quis varius quam quisque id. Faucibus a pellentesque sit amet porttitor eget dolor. In dictum non consectetur a erat nam at lectus. Morbi tristique senectus et netus et malesuada. Orci porta non pulvinar neque laoreet suspendisse interdum consectetur. At imperdiet dui accumsan sit. Semper viverra nam libero justo laoreet sit amet cursus sit. Sollicitudin nibh sit amet commodo nulla facilisi. Sed euismod nisi porta lorem mollis. Volutpat blandit aliquam etiam erat. Enim sit amet venenatis urna cursus. Nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi. Tempus egestas sed sed risus pretium. Diam phasellus vestibulum lorem sed risus. Nunc lobortis mattis aliquam faucibus purus. Pharetra pharetra massa massa ultricies mi. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Hendrerit gravida rutrum quisque non tellus orci ac. Dictum at tempor commodo ullamcorper a. Cursus turpis massa tincidunt dui ut ornare. Tellus cras adipiscing enim eu turpis. Tortor at auctor urna nunc id cursus. Id donec ultrices tincidunt arcu non sodales neque sodales ut. Massa enim nec dui nunc mattis enim ut tellus. Fermentum posuere urna nec tincidunt praesent semper feugiat nibh sed. Tristique senectus et netus et malesuada fames ac turpis egestas. Amet massa vitae tortor condimentum lacinia quis. Faucibus a pellentesque sit amet porttitor eget. Tortor id aliquet lectus proin nibh. Tellus elementum sagittis vitae et leo duis ut diam. Arcu cursus vitae congue mauris rhoncus aenean vel elit. Non enim praesent elementum facilisis. Sed felis eget velit aliquet. Dictum non consectetur a erat nam at. Placerat in egestas erat imperdiet sed euismod nisi porta. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Posuere morbi leo urna molestie at. At urna condimentum mattis pellentesque id. Massa tempor nec feugiat nisl pretium fusce id. In egestas erat imperdiet sed. Consectetur a erat nam at lectus urna duis convallis. Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Sed egestas egestas fringilla phasellus faucibus. Enim sit amet venenatis urna. Feugiat in ante metus dictum at tempor. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Nunc lobortis mattis aliquam faucibus purus in massa. Amet cursus sit amet dictum sit amet justo. Malesuada fames ac turpis egestas integer eget. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec. Ultrices neque ornare aenean euismod elementum. Diam phasellus vestibulum lorem sed risus ultricies tristique. Lorem ipsum dolor sit amet consectetur adipiscing elit. Sem et tortor consequat id porta nibh venenatis cras sed. Nibh sit amet commodo nulla facilisi nullam vehicula. Enim neque volutpat ac tincidunt vitae semper quis. Eu sem integer vitae justo eget magna fermentum iaculis eu. Urna nunc id cursus metus aliquam eleifend. Gravida cum sociis natoque penatibus. Tempor orci eu lobortis elementum nibh. Ullamcorper malesuada proin libero nunc consequat. Tortor dignissim convallis aenean et tortor at risus viverra. Orci sagittis eu volutpat odio facilisis mauris sit amet. Tortor condimentum lacinia quis vel eros donec ac odio. Urna et pharetra pharetra massa massa ultricies mi. Lobortis mattis aliquam faucibus purus. Aliquam malesuada bibendum arcu vitae. Curabitur vitae nunc sed velit dignissim sodales ut eu. Vestibulum morbi blandit cursus risus at ultrices mi tempus. Tempus quam pellentesque nec nam aliquam. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Purus viverra accumsan in nisl. Lectus proin nibh nisl condimentum id venenatis a condimentum. Commodo quis imperdiet massa tincidunt nunc. A diam sollicitudin tempor id eu nisl. Felis eget nunc lobortis mattis aliquam. Sed vulputate odio ut enim blandit volutpat. Vel facilisis volutpat est velit egestas dui id ornare. Sit amet consectetur adipiscing elit duis tristique. Aliquet nec ullamcorper sit amet. Feugiat scelerisque varius morbi enim nunc faucibus. Porta lorem mollis aliquam ut porttitor leo a. Tortor posuere ac ut consequat semper viverra nam libero justo. Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique. Sed velit dignissim sodales ut eu. Nisl tincidunt eget nullam non nisi. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Nec nam aliquam sem et tortor consequat id porta. Ac orci phasellus egestas tellus rutrum tellus pellentesque. Varius morbi enim nunc faucibus a pellentesque sit. Suspendisse interdum consectetur libero id. Nibh mauris cursus mattis molestie a iaculis. Velit laoreet id donec ultrices tincidunt arcu. Cursus eget nunc scelerisque viverra mauris in aliquam sem. Aliquam malesuada bibendum arcu vitae elementum. Felis eget velit aliquet sagittis. Laoreet non curabitur gravida arcu. Sed turpis tincidunt id aliquet. Consequat id porta nibh venenatis cras sed felis eget velit. Tristique senectus et netus et malesuada fames ac. Arcu dictum varius duis at consectetur lorem donec massa sapien. Neque viverra justo nec ultrices dui sapien eget. Libero id faucibus nisl tincidunt eget nullam. Sapien pellentesque habitant morbi tristique senectus et. Fermentum dui faucibus in ornare. Vestibulum sed arcu non odio euismod. Ac turpis egestas integer eget aliquet nibh praesent. Enim ut tellus elementum sagittis. Diam quis enim lobortis scelerisque fermentum dui faucibus in. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo. Enim praesent elementum facilisis leo. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Nisi quis eleifend quam adipiscing vitae. Tellus cras adipiscing enim eu turpis egestas pretium. Risus viverra adipiscing at in tellus integer feugiat. Nibh nisl condimentum id venenatis a. Duis ultricies lacus sed turpis. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit. Aliquam sem et tortor consequat id porta. Platea dictumst quisque sagittis purus sit amet volutpat consequat mauris. Et ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Tincidunt augue interdum velit euismod in pellentesque. Ullamcorper eget nulla facilisi etiam dignissim. Viverra vitae congue eu consequat ac felis donec et odio. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Vel eros donec ac odio tempor orci dapibus. Volutpat commodo sed egestas egestas fringilla. Viverra nibh cras pulvinar mattis nunc. Egestas sed sed risus pretium quam. Nunc scelerisque viverra mauris in aliquam sem fringilla. Ullamcorper malesuada proin libero nunc consequat interdum. Justo eget magna fermentum iaculis eu non. Tellus cras adipiscing enim eu turpis egestas. Bibendum neque egestas congue quisque egestas diam in arcu. Nunc sed blandit libero volutpat sed cras ornare arcu dui. Ut sem nulla pharetra diam sit amet nisl suscipit adipiscing. Cursus vitae congue mauris rhoncus. Non diam phasellus vestibulum lorem sed risus. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Platea dictumst vestibulum rhoncus est pellentesque elit. Ac placerat vestibulum lectus mauris ultrices. Hendrerit dolor magna eget est. Pretium aenean pharetra magna ac. Tortor id aliquet lectus proin nibh. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus. Id consectetur purus ut faucibus pulvinar. Mollis aliquam ut porttitor leo. At quis risus sed vulputate odio ut. Neque gravida in fermentum et. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Vel facilisis volutpat est velit egestas dui id ornare. Diam maecenas sed enim ut sem viverra."),
-                )
+                const Padding(
+                    padding: EdgeInsets.all(0),
+                    child: Column(
+                      children: [
+                      Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet. Dui accumsan sit amet nulla facilisi morbi tempus iaculis. Sagittis eu volutpat odio facilisis. Amet est placerat in egestas. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Consequat ac felis donec et. Nam libero justo laoreet sit amet cursus. Pretium nibh ipsum consequat nisl vel pretium lectus quam. Nunc sed velit dignissim sodales ut eu sem. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Habitasse platea dictumst vestibulum rhoncus est. Accumsan tortor posuere ac ut consequat semper viverra nam. Libero id faucibus nisl tincidunt eget nullam. Eget arcu dictum varius duis at consectetur. Risus quis varius quam quisque id diam vel.",
+                        textAlign: TextAlign.start,
+                        style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.normal, height: 1.5),
+                      ),
+                      SizedBox(height: 10),
+                      
+                      Text(
+                        "Eros donec ac odio tempor orci dapibus. Et sollicitudin ac orci phasellus. Aliquam id diam maecenas ultricies mi. Nunc vel risus commodo viverra. Dolor morbi non arcu risus quis varius quam quisque id. Sodales ut eu sem integer vitae justo eget. Vivamus arcu felis bibendum ut. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna. Mattis molestie a iaculis at erat. In fermentum et sollicitudin ac orci. Sit amet nisl purus in mollis.",
+                        textAlign: TextAlign.start,
+                        style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.normal, height: 1.5),
+                      ),
+                      SizedBox(height: 10),
+                      
+                      Text(
+                        "Dolor sed viverra ipsum nunc aliquet bibendum. Convallis aenean et tortor at risus viverra adipiscing. Quis blandit turpis cursus in hac habitasse platea. Nunc id cursus metus aliquam eleifend. Viverra justo nec ultrices dui sapien. In hendrerit gravida rutrum quisque non tellus orci ac. Parturient montes nascetur ridiculus mus. Etiam tempor orci eu lobortis. Vitae proin sagittis nisl rhoncus mattis rhoncus. Lorem sed risus ultricies tristique nulla. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Scelerisque viverra mauris in aliquam sem. Aliquam ultrices sagittis orci a. Risus quis varius quam quisque id diam vel. Enim sit amet venenatis urna cursus eget nunc scelerisque.",
+                        textAlign: TextAlign.start,
+                        style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.normal, height: 1.5),
+                      ),
+                      SizedBox(height: 10),
+                      
+                      Text(
+                        "Sed viverra ipsum nunc aliquet bibendum enim. Ullamcorper sit amet risus nullam eget felis eget. Pellentesque pulvinar pellentesque habitant morbi tristique. Massa placerat duis ultricies lacus. Sem viverra aliquet eget sit amet tellus cras. Ut placerat orci nulla pellentesque dignissim. Dignissim suspendisse in est ante in nibh. Nulla facilisi morbi tempus iaculis urna id. Et magnis dis parturient montes nascetur ridiculus mus. Consectetur adipiscing elit duis tristique. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Arcu ac tortor dignissim convallis aenean et tortor at risus. Fringilla est ullamcorper eget nulla facilisi etiam dignissim. Mauris pharetra et ultrices neque ornare aenean. Et leo duis ut diam quam nulla porttitor massa. Nibh nisl condimentum id venenatis a condimentum vitae. Ultricies mi eget mauris pharetra et. Eu scelerisque felis imperdiet proin. Sed vulputate mi sit amet mauris commodo quis.",
+                        textAlign: TextAlign.start,
+                        style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.normal, height: 1.5),
+                      ),
+                      SizedBox(height: 10),
+                      
+                      Text(
+                        "Maecenas pharetra convallis posuere morbi leo. Volutpat consequat mauris nunc congue nisi. Sem fringilla ut morbi tincidunt augue interdum. Adipiscing at in tellus integer. Et egestas quis ipsum suspendisse ultrices gravida dictum. Luctus accumsan tortor posuere ac ut consequat. In hac habitasse platea dictumst quisque sagittis purus sit. Vel risus commodo viverra maecenas accumsan lacus vel. Sit amet consectetur adipiscing elit. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Purus viverra accumsan in nisl nisi. Eget nulla facilisi etiam dignissim diam. Magna eget est lorem ipsum dolor. In mollis nunc sed id semper risus in. Euismod in pellentesque massa placerat duis ultricies lacus. A arcu cursus vitae congue mauris rhoncus aenean vel. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Euismod in pellentesque massa placerat duis. Nullam ac tortor vitae purus faucibus ornare. Enim praesent elementum facilisis leo vel fringilla est.",
+                        textAlign: TextAlign.start,
+                        style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.normal, height: 1.5),
+                      ),
+                      SizedBox(height: 10),
+                      
+                      Text(
+                        "Arcu dictum varius duis at consectetur lorem donec massa sapien. Volutpat sed cras ornare arcu dui vivamus arcu. At lectus urna duis convallis convallis tellus id. Viverra maecenas accumsan lacus vel facilisis. Enim tortor at auctor urna. Varius duis at consectetur lorem donec massa. Auctor urna nunc id cursus metus aliquam. Velit aliquet sagittis id consectetur purus ut. Praesent elementum facilisis leo vel fringilla est. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Nullam vehicula ipsum a arcu cursus vitae congue mauris rhoncus. Sagittis nisl rhoncus mattis rhoncus. Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Erat nam at lectus urna duis.",
+                        textAlign: TextAlign.start,
+                        style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.normal, height: 1.5),
+                      ),
+                      SizedBox(height: 10),
+                      
+                      Text(
+                        "Dui ut ornare lectus sit. Integer malesuada nunc vel risus. Nunc aliquet bibendum enim facilisis gravida neque convallis a. Sed turpis tincidunt id aliquet risus feugiat. Egestas diam in arcu cursus euismod quis. Vestibulum sed arcu non odio euismod lacinia at quis. Id interdum velit laoreet id donec ultrices tincidunt. Tempor orci eu lobortis elementum. Fermentum leo vel orci porta non pulvinar. A diam sollicitudin tempor id eu nisl nunc mi ipsum. Sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus. Neque vitae tempus quam pellentesque. Est placerat in egestas erat imperdiet sed. Enim neque volutpat ac tincidunt vitae.",
+                        textAlign: TextAlign.start,
+                        style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.normal, height: 1.5),
+                      ),
+                      SizedBox(height: 10),
+                      
+                      Text(
+                        "Metus aliquam eleifend mi in nulla. Tincidunt vitae semper quis lectus nulla at volutpat diam ut. Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique. Urna cursus eget nunc scelerisque viverra. Nunc sed id semper risus in hendrerit gravida rutrum quisque. Nunc non blandit massa enim nec dui nunc. Id volutpat lacus laoreet non curabitur. Sit amet massa vitae tortor condimentum. Placerat in egestas erat imperdiet sed euismod nisi porta. Mi quis hendrerit dolor magna eget. Dapibus ultrices in iaculis nunc sed augue lacus viverra vitae. Nulla aliquet porttitor lacus luctus.",
+                        textAlign: TextAlign.start,
+                        style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.normal, height: 1.5),
+                      ),
+                      SizedBox(height: 10),
+                      
+                      Text(
+                        "Quam adipiscing vitae proin sagittis nisl rhoncus mattis. Amet cursus sit amet dictum. Venenatis urna cursus eget nunc scelerisque viverra. Interdum velit euismod in pellentesque massa. Quam quisque id diam vel quam elementum pulvinar etiam. Non pulvinar neque laoreet suspendisse interdum consectetur. In egestas erat imperdiet sed euismod nisi porta lorem. Diam donec adipiscing tristique risus nec feugiat in fermentum posuere. Proin sagittis nisl rhoncus mattis rhoncus urna. Malesuada pellentesque elit eget gravida cum sociis. Ultricies tristique nulla aliquet enim. Eget duis at tellus at urna. Consectetur adipiscing elit duis tristique. Proin libero nunc consequat interdum varius sit. Morbi enim nunc faucibus a. Faucibus pulvinar elementum integer enim. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Pellentesque elit eget gravida cum sociis natoque penatibus et magnis.",
+                        textAlign: TextAlign.start,
+                        style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.normal, height: 1.5),
+                      ),
+                      SizedBox(height: 10),
+                      
+                      Text(
+                        "Vitae elementum curabitur vitae nunc. Viverra nibh cras pulvinar mattis nunc sed blandit. Sollicitudin aliquam ultrices sagittis orci a. Lacus viverra vitae congue eu consequat ac felis donec et. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Amet tellus cras adipiscing enim eu turpis. Sed viverra tellus in hac habitasse platea dictumst vestibulum. Mauris augue neque gravida in fermentum et. Non curabitur gravida arcu ac tortor dignissim convallis aenean. Bibendum ut tristique et egestas quis. Tortor aliquam nulla facilisi cras fermentum. Nullam vehicula ipsum a arcu. Neque sodales ut etiam sit amet. Sit amet mauris commodo quis imperdiet. Odio euismod lacinia at quis risus sed. Dolor magna eget est lorem. Faucibus interdum posuere lorem ipsum dolor. Porttitor massa id neque aliquam vestibulum.",
+                        textAlign: TextAlign.start,
+                        style:
+                            TextStyle(fontSize: 20, fontWeight: FontWeight.normal, height: 1.5),
+                      ),
+                      SizedBox(height: 10),
+                      ]
+                    ))
               ],
             ),
           ),

@@ -9,9 +9,8 @@ import './fragment/baca_nanti.dart';
 import './fragment/kategori.dart';
 
 class MainHome extends StatefulWidget {
-  final int initialIndex;
 
-  MainHome({Key? key, this.initialIndex = 2}) : super(key: key);
+  MainHome({Key? key}) : super(key: key);
 
   @override
   _MainHome createState() => _MainHome();
@@ -36,13 +35,6 @@ class _MainHome extends State<MainHome> {
     'Tersimpan',
     'Profil'
   ];
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedTab = widget.initialIndex;
-    titleApp = _title[_selectedTab];
-  }
 
   _changeTab(int index) {
     setState(() {
