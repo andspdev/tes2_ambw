@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:tes2_ambw/includes/functions.dart';
 import 'package:tes2_ambw/includes/variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '/edit_profil.dart';
+import '/lihat_berita.dart';
+import '/fragment/beranda.dart';
 
 class Profil extends StatefulWidget {
   const Profil({super.key});
@@ -82,16 +83,6 @@ class _Profil extends State<Profil> {
                           ),
                         ),
                         SizedBox(height: 30),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => EditProfile(userData: data,)),
-                            );
-                          },
-                          child: Text('Edit Profile'),
-                        ),
                       ],
                     ),
                   );
