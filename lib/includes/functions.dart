@@ -120,7 +120,7 @@ PreferredSize customAppBar(BuildContext context)
                 child: IconButton(
                   icon: const Icon(
                     Icons.logout_outlined,
-                    color: Color.fromARGB(255, 35, 35, 35),
+                    color: COLOR_BLACK,
                   ),
                   onPressed: () 
                   {
