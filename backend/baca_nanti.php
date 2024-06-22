@@ -19,7 +19,7 @@ switch($act)
             );
             $check_tambah->execute([ $user_id, $berita_id ]);
 
-            if ($check_tambah->rowCount() == 0)
+            if ($check_tambah->rowCount() > 0)
             {
                 $output = [
                     'messages' => [
@@ -30,7 +30,7 @@ switch($act)
             else
             {
                 $insert_data = $pdo->prepare(
-                    "INSERT INTO bookmark SET users_id = ? AND berita_id = ?"
+                    "INSERT INTO bookmark SET users_id = ?, berita_id = ?"
                 );
                 $insert_data->execute([ $user_id, $berita_id ]);
 
@@ -51,6 +51,51 @@ switch($act)
             ];
         }
         break;
+
+    case 'del':
+        $status_code = 200;
+        if (strtolower($_SERVER['REQUEST_METHOD']) == 'post')
+        {
+            $user_id = $_POST['user_id'] ?? null;
+            $berita_id = $_POST['berita_id'] ?? null;
+            $check_tambah = $pdo->prepare(
+                "SELECT id FROM bookmark WHERE users_id = ? AND berita_id = ?"
+            );
+            $check_tambah->execute([ $user_id, $berita_id ]);
+
+            if ($check_tambah->rowCount() == 0)
+            {
+                $output = [
+                    'messages' => [
+                        'errors' => 'Data tidak ditemukan.'
+                    ]
+                ];
+            }
+            else
+            {
+                $delete_data = $pdo->prepare(
+                    "DELETE FROM bookmark WHERE users_id = ? AND berita_id = ?"
+                );
+                $delete_data->execute([ $user_id, $berita_id ]);
+
+                $output = [
+                    'success' => true
+                ];
+            }
+
+        }
+        else
+        {
+            $status_code = 400;
+        
+            $output = [
+                'messages' => [
+                    'errors' => 'Method tidak didukung!'
+                ]
+            ];
+        }
+        break;
+
         
     default: 
         $status_code = 200;
