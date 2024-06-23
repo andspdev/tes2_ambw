@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:tes2_ambw/includes/functions.dart';
 import 'package:tes2_ambw/includes/variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -46,43 +48,233 @@ class _Profil extends State<Profil> {
                   return Padding(
                     padding: EdgeInsets.all(16.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Center(
-                          child: CircleAvatar(
-                            radius: 50,
-                            backgroundImage: AssetImage(data['profile_pic']),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        Center(
-                          child: Column(
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                data['nama'],
-                                style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.bold),
+                              CircleAvatar(
+                                radius: 70,
+                                backgroundImage:
+                                    AssetImage(data['profile_pic']),
                               ),
-                              SizedBox(height: 20),
-                              Text(
-                                data['email'],
-                                style: TextStyle(fontSize: 18),
+                              SizedBox(width: 20),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    "HI PETRANESIAN",
+                                    style: TextStyle(
+                                        fontSize: 32,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    data['nama'],
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              )
+                            ]),
+                        const SizedBox(height: 40),
+                        const Divider(),
+                        const SizedBox(height: 40),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 16.0), // Add padding to the sides
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Card(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                child: Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.person,
+                                              size: 42,
+                                            ),
+                                          ]),
+                                      SizedBox(width: 16),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment
+                                            .start, // Ensure text starts from left
+                                        children: [
+                                          Text(
+                                            'Nama',
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                              height:
+                                                  8), // Add some vertical spacing between "Email" and data
+                                          Text(
+                                            data['nama'],
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Card(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                child: Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.email,
+                                              size: 42,
+                                            ),
+                                          ]),
+                                      SizedBox(width: 16),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment
+                                            .start, // Ensure text starts from left
+                                        children: [
+                                          Text(
+                                            'Email',
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                              height:
+                                                  8), // Add some vertical spacing between "Email" and data
+                                          Text(
+                                            data['email'],
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
                               SizedBox(height: 10),
-                              Text(
-                                data['jurusan'],
-                                style: TextStyle(fontSize: 18),
+                              Card(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                child: Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.school,
+                                              size: 42,
+                                            ),
+                                          ]),
+                                      SizedBox(width: 16),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment
+                                            .start, // Ensure text starts from left
+                                        children: [
+                                          Text(
+                                            'Jurusan',
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                              height:
+                                                  8), // Add some vertical spacing between "Email" and data
+                                          Text(
+                                            data['jurusan'],
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
                               SizedBox(height: 10),
-                              Text(
-                                data['login_terakhir'],
-                                style: TextStyle(fontSize: 18),
+                              Card(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                child: Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.access_time,
+                                              size: 42,
+                                            ),
+                                          ]),
+                                      SizedBox(width: 16),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment
+                                            .start, // Ensure text starts from left
+                                        children: [
+                                          Text(
+                                            'Last Login',
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                              height:
+                                                  8), // Add some vertical spacing between "Email" and data
+                                          Text(
+                                            data['login_terakhir'],
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
-                              SizedBox(height: 10),
                             ],
                           ),
                         ),
-                        SizedBox(height: 30),
+                        const SizedBox(height: 30),
                       ],
                     ),
                   );
