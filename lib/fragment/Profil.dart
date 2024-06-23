@@ -43,237 +43,281 @@ class _Profil extends State<Profil> {
                   return Center(child: Text('Error: ${snapshot.error}'));
                 } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
                   Map<String, dynamic> data = snapshot.data!;
-                  return Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              CircleAvatar(
-                                radius: 70,
-                                backgroundImage:
-                                    AssetImage(data['profile_pic']),
-                              ),
-                              SizedBox(width: 20),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    "HI PETRANESIAN",
-                                    style: TextStyle(
-                                        fontSize: 32,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    data['nama'].split(' ').first,
-                                    style: const TextStyle(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              )
-                            ]),
-                        const SizedBox(height: 40),
-                        const Divider(),
-                        const SizedBox(height: 40),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 16.0), // Add padding to the sides
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Card(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                child: Padding(
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                  return SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CircleAvatar(
+                                  radius: MediaQuery.of(context).size.width*0.1,
+                                  backgroundImage:
+                                      AssetImage(data['profile_pic']),
+                                ),
+                                SizedBox(width: MediaQuery.of(context).size.width*0.03),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "HI PETRANESIAN",
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      data['nama'].split(' ').first,
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.03,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                )
+                              ]),
+                          SizedBox(height: MediaQuery.of(context).size.width*0.05),
+                          const Divider(),
+                          SizedBox(height: MediaQuery.of(context).size.width*0.05),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Card(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.01),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.person,
+                                                size: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.05,
+                                              ),
+                                            ]),
+                                        SizedBox(width: MediaQuery.of(context).size.width*0.03),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment
+                                              .start, // Ensure text starts from left
                                           children: [
-                                            Icon(
-                                              Icons.person,
-                                              size: 42,
+                                            Text(
+                                              'Nama',
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.025,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
-                                          ]),
-                                      SizedBox(width: 16),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .start, // Ensure text starts from left
-                                        children: [
-                                          const Text(
-                                            'Nama',
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
+                                            SizedBox(
+                                                height:
+                                                    MediaQuery.of(context).size.width*0.015), // Add some vertical spacing between "Email" and data
+                                            Text(
+                                              data['nama'],
+                                              style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.025,
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(
-                                              height:
-                                                  8), // Add some vertical spacing between "Email" and data
-                                          Text(
-                                            data['nama'],
-                                            style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Card(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                child: Padding(
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                SizedBox(height: MediaQuery.of(context).size.width*0.015),
+                                Card(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.01),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.email,
+                                                size: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.05,
+                                              ),
+                                            ]),
+                                        SizedBox(width: MediaQuery.of(context).size.width*0.03),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment
+                                              .start, // Ensure text starts from left
                                           children: [
-                                            Icon(
-                                              Icons.email,
-                                              size: 42,
+                                            Text(
+                                              'Email',
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.025,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
-                                          ]),
-                                      const SizedBox(width: 16),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .start, // Ensure text starts from left
-                                        children: [
-                                          const Text(
-                                            'Email',
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
+                                            SizedBox(
+                                                height:
+                                                    MediaQuery.of(context).size.width*0.015), // Add some vertical spacing between "Email" and data
+                                            Text(
+                                              data['email'],
+                                              style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.025,
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(
-                                              height:
-                                                  8), // Add some vertical spacing between "Email" and data
-                                          Text(
-                                            data['email'],
-                                            style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(height: 10),
-                              Card(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                child: Padding(
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                SizedBox(height: MediaQuery.of(context).size.width*0.015),
+                                Card(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.01),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.school,
+                                                size: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.05,
+                                              ),
+                                            ]),
+                                        SizedBox(width: MediaQuery.of(context).size.width*0.03),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment
+                                              .start, // Ensure text starts from left
                                           children: [
-                                            Icon(
-                                              Icons.school,
-                                              size: 42,
+                                            Text(
+                                              'Jurusan',
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.025,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
-                                          ]),
-                                      SizedBox(width: 16),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .start, // Ensure text starts from left
-                                        children: [
-                                          const Text(
-                                            'Jurusan',
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
+                                            const SizedBox(
+                                                height:
+                                                    8), // Add some vertical spacing between "Email" and data
+                                            Text(
+                                              data['jurusan'],
+                                              style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.025,
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(
-                                              height:
-                                                  8), // Add some vertical spacing between "Email" and data
-                                          Text(
-                                            data['jurusan'],
-                                            style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(height: 10),
-                              Card(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                child: Padding(
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                SizedBox(height: MediaQuery.of(context).size.width*0.015),
+                                Card(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(16.0),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.access_time,
+                                                size: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.05,
+                                              ),
+                                            ]),
+                                        SizedBox(width: MediaQuery.of(context).size.width*0.03),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment
+                                              .start, // Ensure text starts from left
                                           children: [
-                                            Icon(
-                                              Icons.access_time,
-                                              size: 42,
+                                            Text(
+                                              'Last Login',
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.025,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
-                                          ]),
-                                      SizedBox(width: 16),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .start, // Ensure text starts from left
-                                        children: [
-                                          const Text(
-                                            'Last Login',
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
+                                            SizedBox(
+                                                height:
+                                                    MediaQuery.of(context).size.width*0.015), // Add some vertical spacing between "Email" and data
+                                            Text(
+                                              data['login_terakhir'],
+                                              style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.025,
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(
-                                              height:
-                                                  8), // Add some vertical spacing between "Email" and data
-                                          Text(
-                                            data['login_terakhir'],
-                                            style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 30),
-                      ],
+                          SizedBox(height: MediaQuery.of(context).size.width*0.03),
+                        ],
+                      ),
                     ),
                   );
                 } else {

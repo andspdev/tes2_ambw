@@ -24,7 +24,6 @@ class _ViewNews extends State<ViewNews> {
 
   @override
   Widget build(BuildContext context) {
-    // Kalau mau ambil id berita
 
     return MaterialApp(
       title: 'Berita | Test 2 AMBW',
