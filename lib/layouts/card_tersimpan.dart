@@ -19,13 +19,13 @@ Widget cardTersimpan(context, berita, int index) {
         overflow: TextOverflow.ellipsis,
       );
     } else {
-     return Text(
+      return Text(
         berita[index]['judul_berita'],
         style: const TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.bold,
         ),
-        maxLines: 2,
+        maxLines: 3,
         overflow: TextOverflow.ellipsis,
       );
     }
@@ -74,20 +74,13 @@ Widget cardTersimpan(context, berita, int index) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     getFontSizeJudul(context),
-                    // Text(
-                    //   berita[index]['judul_berita'],
-                    //   style: const TextStyle(
-                    //     fontSize: 14,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    //   maxLines: 2,
-                    //   overflow: TextOverflow.ellipsis,
-                    // ),
 
                     // Tanggal
                     Text(
                       berita[index]['dibuat_pada'],
                       style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
 
                     const SizedBox(height: 4),

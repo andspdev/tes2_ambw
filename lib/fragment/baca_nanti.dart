@@ -11,30 +11,6 @@ class BacaNanti extends StatefulWidget {
 }
 
 class _BacaNanti extends State<BacaNanti> {
-  bool pressed = false;
-  Future<void> tambahBacaNanti(BuildContext) async {
-    if (!pressed) {
-      const String apiUrl = '$URL_API/baca_nanti.php?act=add';
-      var userprofile = await getUserProfile();
-      String userid = userprofile['id'];
-      String beritaid = '0083dcc6-2f87-11ef-98c8-0050564c5558';
-
-      final Map<String, dynamic> requestBody = {
-        'user_id': userid,
-        'berita_id': beritaid
-      };
-      setState(() => pressed = false);
-      try {
-        final response = await postData(apiUrl, requestBody);
-        final getMessages = response['messages'];
-        print(getMessages);
-      } catch (error) {
-        print('Error');
-        setState(() => pressed = false);
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     Future<Map<String, dynamic>> userdata = getUserProfile();
@@ -46,57 +22,68 @@ class _BacaNanti extends State<BacaNanti> {
             backgroundColor: COLOR_WHITE,
             body: Padding(
               padding: const EdgeInsets.all(20.0),
-              child: FutureBuilder<Map<String, dynamic>>(
-                future: userdata,
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return loaderSmallCenter();
-                  }
+              child: Column(
+                children: [
+                  Text(
+                    "TERSIMPAN",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 20),
+                  Expanded(
+                    child: FutureBuilder<Map<String, dynamic>>(
+                      future: userdata,
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return loaderSmallCenter();
+                        }
 
-                  if (snapshot.hasError) {
-                    return const Text(
-                        'Terjadi kesalahan saat mengambil data berita.');
-                  }
+                        if (snapshot.hasError) {
+                          return const Text(
+                              'Terjadi kesalahan saat mengambil data berita.');
+                        }
 
-                  var data;
-                  if (snapshot.hasData) {
-                    data = snapshot.data;
-                    // print("ini adalah data: ${data}");
-                  }
-                  return FutureBuilder<Map<String, dynamic>>(
-                    future: getData(
-                        '$URL_API/baca_nanti.php?user_id=${data['id']}'),
-                    builder: (context, databookmark) {
-                      if (databookmark.connectionState ==
-                          ConnectionState.waiting) {
-                        return loaderSmallCenter();
-                      }
+                        var data;
+                        if (snapshot.hasData) {
+                          data = snapshot.data;
+                          // print("ini adalah data: ${data}");
+                        }
+                        return FutureBuilder<Map<String, dynamic>>(
+                          future: getData(
+                              '$URL_API/baca_nanti.php?user_id=${data['id']}'),
+                          builder: (context, databookmark) {
+                            if (databookmark.connectionState ==
+                                ConnectionState.waiting) {
+                              return loaderSmallCenter();
+                            }
 
-                      if (databookmark.hasError) {
-                        return const Text(
-                            'Terjadi kesalahan saat mengambil data berita.');
-                      }
+                            if (databookmark.hasError) {
+                              return const Text(
+                                  'Terjadi kesalahan saat mengambil data berita.');
+                            }
 
-                      var databerita;
-                      if (databookmark.hasData) {
-                        databerita = databookmark.data;
-                        print(databerita);
-                      }
+                            var databerita;
+                            if (databookmark.hasData) {
+                              databerita = databookmark.data;
+                            }
 
-                      return GridView.builder(
-                          itemCount: databerita['berita'].length,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: getCrossAxisCount(context),
-                            childAspectRatio: getAspectRatio(context),
-                            crossAxisSpacing: 5,
-                            mainAxisSpacing: 5,
-                          ),
-                          itemBuilder: (context, index) => cardTersimpan(
-                              context, databerita['berita'], index));
-                    },
-                  );
-                },
+                            return GridView.builder(
+                                itemCount: databerita['berita'].length,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: getCrossAxisCount(context),
+                                  childAspectRatio: getAspectRatio(context),
+                                  crossAxisSpacing: 5,
+                                  mainAxisSpacing: 5,
+                                ),
+                                itemBuilder: (context, index) => cardTersimpan(
+                                    context, databerita['berita'], index));
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
             )));
   }

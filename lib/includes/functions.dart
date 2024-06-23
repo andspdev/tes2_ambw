@@ -176,7 +176,13 @@ Center loaderSmallCenter() {
 double getAspectRatio(BuildContext context) {
   final double screenWidth = MediaQuery.of(context).size.width;
   print('Width: ${MediaQuery.of(context).size.width}');
-  if (screenWidth >= 800) {
+  if (screenWidth >= 1110) {
+    final double hasil = ((screenWidth * 0.38) / 1000) * 2;
+    return (hasil);
+  } else if (screenWidth >= 1000) {
+    final double hasil = ((screenWidth * 0.47) / 1000) * 2;
+    return (hasil);
+  } else if (screenWidth >= 800) {
     final double hasil = ((screenWidth * 0.57) / 1000) * 2;
     return (hasil);
   } else if (screenWidth >= 700) {
@@ -207,7 +213,7 @@ int getCrossAxisCount(BuildContext context) {
 double getImageHeight(BuildContext context) {
   final double screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth >= 1000) {
-    final double hasil = (screenWidth / 10);
+    final double hasil = (screenWidth / 5);
     return hasil;
   } else if (screenWidth >= 600) {
     final double hasil = (screenWidth / 3.5);

@@ -79,6 +79,8 @@ Widget cardPencarian(
                   Text(
                     berita[index]['dibuat_pada'],
                     style: const TextStyle(fontSize: 12, color: Colors.grey),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
                   Text(

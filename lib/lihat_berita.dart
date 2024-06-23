@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tes2_ambw/fragment/Beranda.dart';
 import 'package:tes2_ambw/fragment/baca_nanti.dart';
 import 'package:tes2_ambw/fragment/pencarian.dart';
+import 'package:tes2_ambw/includes/functions.dart';
 import 'includes/variables.dart';
 
 class ViewNews extends StatefulWidget {
@@ -16,6 +17,56 @@ class ViewNews extends StatefulWidget {
 }
 
 class _ViewNews extends State<ViewNews> {
+  //Untuk tambahkan data ke tersimpan / bookmark
+  bool pressed = false;
+  Future<void> tambahBacaNanti(BuildContext) async {
+    if (!pressed) {
+      const String apiUrl = '$URL_API/baca_nanti.php?act=add';
+      var userprofile = await getUserProfile();
+      String userid = userprofile['id'];
+      String beritaid = widget.berita['id'];
+
+      final Map<String, dynamic> requestBody = {
+        'user_id': userid,
+        'berita_id': beritaid
+      };
+      setState(() => pressed = false);
+      try {
+        final response = await postData(apiUrl, requestBody);
+        final getMessages = response['messages'];
+        print(getMessages);
+      } catch (error) {
+        print('Error');
+        setState(() => pressed = false);
+      }
+    }
+  }
+
+  Future<void> hapusBacaNanti(BuildContext) async {
+    if (!pressed) {
+      const String apiUrl = '$URL_API/baca_nanti.php?act=del';
+      var userprofile = await getUserProfile();
+      String userid = userprofile['id'];
+      String beritaid = widget.berita['id'];
+
+      final Map<String, dynamic> requestBody = {
+        'user_id': userid,
+        'berita_id': beritaid
+      };
+      setState(() => pressed = false);
+      try {
+        final response = await postData(apiUrl, requestBody);
+        final getMessages = response['messages'];
+        print(getMessages);
+      } catch (error) {
+        print('Error');
+        setState(() => pressed = false);
+      }
+    }
+  }
+
+  Future<Map<String, dynamic>> userdata = getUserProfile();
+
   final List<Widget> _pages = [
     const Beranda(),
     const BacaNanti(),
@@ -24,6 +75,7 @@ class _ViewNews extends State<ViewNews> {
 
   @override
   Widget build(BuildContext context) {
+    // Kalau mau ambil id berita
 
     return MaterialApp(
       title: 'Berita | Test 2 AMBW',
@@ -66,14 +118,70 @@ class _ViewNews extends State<ViewNews> {
                         },
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.only(right: 12),
-                      child: IconButton(
-                        icon: const Icon(Icons.bookmark_add),
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        onPressed: () {},
-                      ),
-                    ),
+                    FutureBuilder<Map<String, dynamic>>(
+                      future: userdata,
+                      builder: (context, datauser) {
+                        var data;
+                        if (datauser.hasData) {
+                          data = datauser.data;
+                        }
+                        return FutureBuilder<Map<String, dynamic>>(
+                          future: getData(
+                              '$URL_API/baca_nanti.php?user_id=${data['id']}'),
+                          builder: (context, databookmark) {
+                            List<Map<String, dynamic>> databerita = [];
+                            var temp;
+                            if (databookmark.hasData) {
+                              temp = databookmark.data;
+                              databerita = [
+                                ...List<Map<String, dynamic>>.from(
+                                    databookmark.data?['berita']),
+                              ];
+
+                              //jika berita sudah tersimpan
+                              if (databerita
+                                  .where((element) =>
+                                      element['id'] == widget.berita['id'])
+                                  .isNotEmpty) {
+                                return Container(
+                                  padding: EdgeInsets.only(right: 12),
+                                  child: IconButton(
+                                      icon: const Icon(Icons.bookmark_add),
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      onPressed: () => hapusBacaNanti(context)),
+                                );
+                              } else {
+                                return Container(
+                                  padding: EdgeInsets.only(right: 12),
+                                  child: IconButton(
+                                      icon: const Icon(
+                                          Icons.bookmark_add_outlined),
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      onPressed: () =>
+                                          tambahBacaNanti(context)),
+                                );
+                              }
+                            } else {
+                              return Container(
+                                padding: EdgeInsets.only(right: 12),
+                                child: IconButton(
+                                    icon:
+                                        const Icon(Icons.bookmark_add_outlined),
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    onPressed: () => tambahBacaNanti(context)),
+                              );
+                            }
+                          },
+                        );
+                      },
+                    )
+                    // Container(
+                    //   padding: EdgeInsets.only(right: 12),
+                    //   child: IconButton(
+                    //       icon: const Icon(Icons.bookmark_add_outlined),
+                    //       color: Color.fromARGB(255, 0, 0, 0),
+                    //       onPressed: () {}),
+                    // )
                   ],
                 ),
               ),

@@ -108,7 +108,7 @@ class _Pencarian extends State<Pencarian> {
                               crossAxisCount: getCrossAxisCount(context),
                               crossAxisSpacing: 8.0,
                               mainAxisSpacing: 8.0,
-                              childAspectRatio: 0.7,
+                              childAspectRatio: getAspectRatio(context),
                             ),
                             itemCount: _searchResults.length,
                             itemBuilder: (context, index) {
