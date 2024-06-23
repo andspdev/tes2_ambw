@@ -9,3 +9,4 @@ const Color COLOR_BORDER_GREY = Color.fromRGBO(238, 238, 238, 1);
 const Color COLOR_BLACK = Color.fromARGB(255, 55, 55, 55);
 const String ASSET_IMG_LOGO = './assets/logo-petra-news.jpg';
 const String ASSET_IMG_THUMBNAIL_LOADER = './assets/thumbnail-loader.jpg';
+const String ASSET_IMG_EMPTY_THUMBNAIL = './assets/empty_thumbnail.png';

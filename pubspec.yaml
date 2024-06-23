@@ -22,3 +22,4 @@ flutter:
   assets:
     - assets/logo-petra-news.jpg
     - assets/thumbnail-loader.jpg
+    - assets\empty_thumbnail.png
