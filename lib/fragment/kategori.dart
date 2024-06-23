@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -70,7 +72,7 @@ class _KategoriState extends State<Kategori> {
                 style: TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
-                  color: COLOR_PRIMARY,
+                  color: Colors.black,
                 ),
               ),
             ),
@@ -94,6 +96,7 @@ class _KategoriState extends State<Kategori> {
                       crossAxisCount: 2, // Set the number of columns
                       crossAxisSpacing: 8.0,
                       mainAxisSpacing: 8.0,
+                      childAspectRatio: 0.8, // Adjust the aspect ratio
                     ),
                     itemCount: categories.length,
                     itemBuilder: (context, index) {
@@ -101,9 +104,7 @@ class _KategoriState extends State<Kategori> {
                       log('Category: $category'); // Log category data
 
                       // Fetch latest berita image
-                      final String latestImage = category['latest_image'] ??
-                          ASSET_IMG_THUMBNAIL_LOADER;
-
+                      final String latestImage = category['latest_image'] ?? '';
 
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -111,43 +112,47 @@ class _KategoriState extends State<Kategori> {
                           elevation: 5.0,
                           child: Column(
                             children: [
-                              if (latestImage.isNotEmpty)
+                              if (latestImage.isNotEmpty &&
+                                  Uri.tryParse(latestImage)?.hasAbsolutePath ==
+                                      true)
                                 Image.network(
                                   latestImage,
                                   fit: BoxFit.cover,
                                   width: double.infinity,
-                                  height: 150.0,
+                                  height: 175.0, // Adjusted height
                                 )
                               else
                                 Image.asset(
                                   ASSET_IMG_THUMBNAIL_LOADER,
                                   fit: BoxFit.cover,
                                   width: double.infinity,
-                                  height: 150.0,
+                                  height: 175.0, // Adjusted height
                                 ),
-                              ListTile(
-                                title: Text(
-                                  category['nama'] ?? 'Unknown',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
-                                  ),
-                                ),
-                                subtitle: Text(
-                                  'Total berita: ${category['total_berita'] ?? 'N/A'}',
-                                  style: TextStyle(color: Colors.grey[700]),
-                                ),
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => BeritaPage(
-                                        category: category,
-                                      ),
+                              Flexible(
+                                child: ListTile(
+                                  title: Text(
+                                    category['nama'] ?? 'Unknown',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0, // Adjusted font size
                                     ),
-                                  );
-                                },
+                                  ),
+                                  subtitle: Text(
+                                    'Total berita: ${category['total_berita'] ?? 'N/A'}',
+                                    style: TextStyle(color: Colors.grey[700]),
+                                  ),
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => BeritaPage(
+                                          category: category,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
                               ),
                             ],
                           ),
@@ -246,32 +251,49 @@ class _BeritaPageState extends State<BeritaPage> {
                 return _buildEmptyBeritaMessage();
               }
 
-              if (!mounted)
+              if (!mounted) {
                 return SliverFillRemaining(
                   child: SizedBox.shrink(),
                 );
+              }
 
               final beritaList = snapshot.data!;
 
-              return SliverList(
+              return SliverGrid(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, // Number of columns
+                  crossAxisSpacing: 8.0,
+                  mainAxisSpacing: 8.0,
+                  childAspectRatio: 0.8, // Adjust the aspect ratio
+                ),
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
-                    final berita = beritaList[index];
+                    if (index < beritaList.length) {
+                      final berita = beritaList[index];
 
-                    // Ensure values are not null by providing default values
-                    final String thumbnail =
-                        berita['thumbnail'] ?? ASSET_IMG_THUMBNAIL_LOADER;
-                    final String judul_berita =
-                        berita['judul_berita'] ?? 'No Title';
-                    final String dibuat_pada =
-                        berita['dibuat_pada'] ?? 'Unknown Date';
-                    final String nama_kategori =
-                        widget.category['nama'] ?? 'Unknown Category';
-                    berita['nama_kategori'] = nama_kategori;
+                      // Ensure values are not null by providing default values
+                      final String thumbnail =
+                          berita['thumbnail'] ?? ASSET_IMG_THUMBNAIL_LOADER;
+                      final String judulBerita =
+                          berita['judul_berita'] ?? 'No Title';
+                      final String dibuatPada =
+                          berita['dibuat_pada'] ?? 'Unknown Date';
+                      final String namaKategori =
+                          widget.category['nama'] ?? 'Unknown Category';
+                      berita['nama_kategori'] = namaKategori;
 
-                    return cardKategori(context, beritaList, index);
+                      return cardKategori(context, beritaList, index);
+                    } else {
+                      // This handles the case when the index is out of valid range.
+                      // If the index is beyond the list length, return an empty SizedBox.
+                      // This ensures the grid layout completes correctly.
+                      return SizedBox.shrink();
+                    }
                   },
-                  childCount: beritaList.length,
+                  // Adjust childCount to include an additional item if the list length is odd
+                  childCount: beritaList.length % 2 == 0
+                      ? beritaList.length
+                      : beritaList.length + 1,
                 ),
               );
             },
@@ -299,4 +321,3 @@ class _BeritaPageState extends State<BeritaPage> {
     );
   }
 }
-

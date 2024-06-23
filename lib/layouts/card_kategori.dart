@@ -7,11 +7,12 @@ GestureDetector cardKategori(context, berita, index) {
     onTap: () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ViewNews(berita: berita[index], page: 0)),
+        MaterialPageRoute(
+            builder: (context) => ViewNews(berita: berita[index], page: 0)),
       );
     },
     child: Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+      padding: const EdgeInsets.all(12.0), // Increased padding for more space
       child: Material(
         elevation: 5.0,
         borderRadius: BorderRadius.circular(12.0),
@@ -24,7 +25,7 @@ GestureDetector cardKategori(context, berita, index) {
               // Thumbnail
               SizedBox(
                 width: double.infinity,
-                height: 150, // Adjust the height as needed
+                height: 120, // Adjusted the height as needed
                 child: Stack(
                   children: [
                     Positioned.fill(
@@ -52,7 +53,7 @@ GestureDetector cardKategori(context, berita, index) {
 
               // Details
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12.0), // Increased padding for better spacing
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -63,7 +64,7 @@ GestureDetector cardKategori(context, berita, index) {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 18.0,
+                        fontSize: 16.0, // Adjusted font size
                         color: Colors.black,
                       ),
                     ),
