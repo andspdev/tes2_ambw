@@ -8,7 +8,7 @@ Widget cardTersimpan(context, berita, int index)
     onTap: () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ViewNews(berita: berita[index])),
+        MaterialPageRoute(builder: (context) => ViewNews(berita: berita[index], page: 1)),
       );
     },
     child: SizedBox(

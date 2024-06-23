@@ -5,8 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:tes2_ambw/includes/functions.dart';
 import 'package:tes2_ambw/includes/variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '/lihat_berita.dart';
-import '/fragment/beranda.dart';
 
 class Profil extends StatefulWidget {
   const Profil({super.key});
@@ -68,8 +66,8 @@ class _Profil extends State<Profil> {
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text(
-                                    data['nama'],
-                                    style: TextStyle(
+                                    data['nama'].split(' ').first,
+                                    style: const TextStyle(
                                         fontSize: 30,
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -80,7 +78,7 @@ class _Profil extends State<Profil> {
                         const Divider(),
                         const SizedBox(height: 40),
                         Padding(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16.0), // Add padding to the sides
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +91,7 @@ class _Profil extends State<Profil> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Column(
+                                      const Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
@@ -107,7 +105,7 @@ class _Profil extends State<Profil> {
                                         crossAxisAlignment: CrossAxisAlignment
                                             .start, // Ensure text starts from left
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Nama',
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
@@ -115,12 +113,12 @@ class _Profil extends State<Profil> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                               height:
                                                   8), // Add some vertical spacing between "Email" and data
                                           Text(
                                             data['nama'],
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -139,7 +137,7 @@ class _Profil extends State<Profil> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Column(
+                                      const Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
@@ -148,12 +146,12 @@ class _Profil extends State<Profil> {
                                               size: 42,
                                             ),
                                           ]),
-                                      SizedBox(width: 16),
+                                      const SizedBox(width: 16),
                                       Column(
                                         crossAxisAlignment: CrossAxisAlignment
                                             .start, // Ensure text starts from left
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Email',
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
@@ -161,12 +159,12 @@ class _Profil extends State<Profil> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                               height:
                                                   8), // Add some vertical spacing between "Email" and data
                                           Text(
                                             data['email'],
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -186,7 +184,7 @@ class _Profil extends State<Profil> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Column(
+                                      const Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
@@ -200,7 +198,7 @@ class _Profil extends State<Profil> {
                                         crossAxisAlignment: CrossAxisAlignment
                                             .start, // Ensure text starts from left
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Jurusan',
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
@@ -208,12 +206,12 @@ class _Profil extends State<Profil> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                               height:
                                                   8), // Add some vertical spacing between "Email" and data
                                           Text(
                                             data['jurusan'],
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -233,7 +231,7 @@ class _Profil extends State<Profil> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Column(
+                                      const Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
@@ -247,7 +245,7 @@ class _Profil extends State<Profil> {
                                         crossAxisAlignment: CrossAxisAlignment
                                             .start, // Ensure text starts from left
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Last Login',
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
@@ -255,12 +253,12 @@ class _Profil extends State<Profil> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                               height:
                                                   8), // Add some vertical spacing between "Email" and data
                                           Text(
                                             data['login_terakhir'],
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -279,7 +277,7 @@ class _Profil extends State<Profil> {
                     ),
                   );
                 } else {
-                  return Center(child: Text('No user data found.'));
+                  return const Center(child: Text('No user data found.'));
                 }
               }),
         ));

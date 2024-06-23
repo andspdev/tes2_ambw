@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:tes2_ambw/fragment/Beranda.dart';
+import 'package:tes2_ambw/fragment/baca_nanti.dart';
 import 'includes/variables.dart';
 
 class ViewNews extends StatefulWidget {
   final Map<String, dynamic> berita;
+  final int page;
 
-  const ViewNews({Key? key, required this.berita}) : super(key: key);
+  const ViewNews({Key? key, required this.berita, required this.page}) : super(key: key);
 
   @override
   _ViewNews createState() => _ViewNews();
 }
 
 class _ViewNews extends State<ViewNews> {
+
+  final List<Widget> _pages = [
+    const Beranda(),
+    const BacaNanti(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     // Kalau mau ambil id berita
@@ -52,7 +60,7 @@ class _ViewNews extends State<ViewNews> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Beranda()),
+                                  builder: (context) => _pages[widget.page]),
                             );
                           }),
                     ),
@@ -95,7 +103,6 @@ class _ViewNews extends State<ViewNews> {
                       ),
                     ],
                   ),
-
                   //CREATED AT
                   Padding(
                     padding: EdgeInsets.only(left: 14),

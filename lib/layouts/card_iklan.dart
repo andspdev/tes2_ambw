@@ -8,7 +8,7 @@ GestureDetector cardIklanStandar(context, beritaTerbaru, index)
     onTap: () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ViewNews(berita: beritaTerbaru[index])),
+        MaterialPageRoute(builder: (context) => ViewNews(berita: beritaTerbaru[index], page: 0)),
       );
     },
     child: Padding(
