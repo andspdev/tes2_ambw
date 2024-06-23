@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tes2_ambw/fragment/Beranda.dart';
 import 'package:tes2_ambw/fragment/baca_nanti.dart';
+import 'package:tes2_ambw/fragment/pencarian.dart';
 import 'includes/variables.dart';
 
 class ViewNews extends StatefulWidget {
@@ -18,6 +19,7 @@ class _ViewNews extends State<ViewNews> {
   final List<Widget> _pages = [
     const Beranda(),
     const BacaNanti(),
+    const Pencarian(),
   ];
 
   @override

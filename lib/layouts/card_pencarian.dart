@@ -36,7 +36,7 @@ Widget cardPencarian(
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => ViewNews(berita: berita[index], page: 1),
+          builder: (context) => ViewNews(berita: berita[index], page: 2),
         ),
       );
     },
