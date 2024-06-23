@@ -6,15 +6,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tes2_ambw/masuk.dart';
 import './variables.dart';
 
-
-Future<Map<String, dynamic>> postData(String url, Map<String, dynamic> body) async 
-{
+Future<Map<String, dynamic>> postData(
+    String url, Map<String, dynamic> body) async {
   final response = await http.post(
     Uri.parse(url),
-
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
+    headers: {"Content-Type": "application/x-www-form-urlencoded"},
     body: body,
   );
 
@@ -25,9 +21,7 @@ Future<Map<String, dynamic>> postData(String url, Map<String, dynamic> body) asy
   }
 }
 
-
-Future<Map<String, dynamic>> getData(String url) async 
-{
+Future<Map<String, dynamic>> getData(String url) async {
   final response = await http.get(Uri.parse(url));
 
   if (response.statusCode == 200) {
@@ -37,13 +31,10 @@ Future<Map<String, dynamic>> getData(String url) async
   }
 }
 
-
-Future<void> saveToSharedPreferences(Map<String, dynamic> data) async 
-{
+Future<void> saveToSharedPreferences(Map<String, dynamic> data) async {
   final prefs = await SharedPreferences.getInstance();
   await prefs.setString(USER_DATA, json.encode(data));
 }
-
 
 void showSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(
@@ -54,9 +45,7 @@ void showSnackBar(BuildContext context, String text) {
   );
 }
 
-
-Future<Map<String, dynamic>> getSharedPreferences(String user_data) async 
-{
+Future<Map<String, dynamic>> getSharedPreferences(String user_data) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String? userDataString = prefs.getString(user_data);
 
@@ -67,27 +56,22 @@ Future<Map<String, dynamic>> getSharedPreferences(String user_data) async
   }
 }
 
-
 Future<Map<String, dynamic>> getUserProfile() async {
   Map<String, dynamic> userProfile = await getSharedPreferences(USER_DATA);
   return userProfile;
 }
-
 
 Future<void> clearSharedPreferences() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   await prefs.clear();
 }
 
-
 Future<void> removeValueFromSharedPreferences(String key) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   await prefs.remove(key);
 }
 
-
-PreferredSize customAppBar(BuildContext context) 
-{
+PreferredSize customAppBar(BuildContext context) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(60.0),
     child: Container(
@@ -122,9 +106,7 @@ PreferredSize customAppBar(BuildContext context)
                     Icons.logout_outlined,
                     color: COLOR_BLACK,
                   ),
-                  onPressed: () 
-                  {
-                    
+                  onPressed: () {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
@@ -135,7 +117,9 @@ PreferredSize customAppBar(BuildContext context)
                           actions: <Widget>[
                             TextButton(
                               style: ButtonStyle(
-                                foregroundColor: MaterialStateProperty.all<Color>(COLOR_PRIMARY), // Ubah warna teks tombol
+                                foregroundColor: MaterialStateProperty.all<
+                                        Color>(
+                                    COLOR_PRIMARY), // Ubah warna teks tombol
                               ),
                               child: const Text('Tidak'),
                               onPressed: () {
@@ -144,23 +128,24 @@ PreferredSize customAppBar(BuildContext context)
                             ),
                             TextButton(
                               style: ButtonStyle(
-                                foregroundColor: MaterialStateProperty.all<Color>(COLOR_PRIMARY), // Ubah warna teks tombol
+                                foregroundColor: MaterialStateProperty.all<
+                                        Color>(
+                                    COLOR_PRIMARY), // Ubah warna teks tombol
                               ),
                               child: const Text('Ya'),
                               onPressed: () {
                                 removeValueFromSharedPreferences(USER_DATA);
                                 Navigator.of(context).pop();
                                 Navigator.push(
-                                  context, 
-                                  MaterialPageRoute(builder: (context) => const Masuk())
-                                );
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const Masuk()));
                               },
                             ),
                           ],
                         );
                       },
                     );
-
                   },
                 ),
               ),
@@ -186,4 +171,49 @@ Center loaderSmallCenter() {
       ),
     ),
   );
+}
+
+double getAspectRatio(BuildContext context) {
+  final double screenWidth = MediaQuery.of(context).size.width;
+  print('Width: ${MediaQuery.of(context).size.width}');
+  if (screenWidth >= 800) {
+    final double hasil = ((screenWidth * 0.57) / 1000) * 2;
+    return (hasil);
+  } else if (screenWidth >= 700) {
+    final double hasil = ((screenWidth * 0.68) / 1000) * 2;
+    return (hasil);
+  } else if (screenWidth >= 500) {
+    final double hasil = ((screenWidth * 0.7) / 1000) * 2;
+    return (hasil);
+  } else if (screenWidth >= 340) {
+    final double hasil = ((screenWidth * 0.8) / 1000) * 2;
+    return (hasil);
+  } else {
+    final double hasil = ((screenWidth * 0.9) / 1000) * 2;
+    return (hasil);
+  }
+}
+
+int getCrossAxisCount(BuildContext context) {
+  final double screenWidth = MediaQuery.of(context).size.width;
+
+  if (screenWidth >= 1000) {
+    return 3;
+  } else {
+    return 2;
+  }
+}
+
+double getImageHeight(BuildContext context) {
+  final double screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth >= 1000) {
+    final double hasil = (screenWidth / 10);
+    return hasil;
+  } else if (screenWidth >= 600) {
+    final double hasil = (screenWidth / 3.5);
+    return hasil;
+  } else {
+    final double hasil = (screenWidth / 3);
+    return hasil;
+  }
 }
