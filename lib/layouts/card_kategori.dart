@@ -80,13 +80,15 @@ GestureDetector cardKategori(context, berita, index) {
                         Icon(Icons.access_time,
                             size: 14.0, color: Colors.grey[600]),
                         const SizedBox(width: 4.0),
-                        Text(
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          "${berita[index]['dibuat_pada']}",
-                          style: const TextStyle(
-                            color: COLOR_PRIMARY,
-                            fontSize: 12.0,
+                        Expanded(
+                          child: Text(
+                            "${berita[index]['dibuat_pada']}",
+                            style: const TextStyle(
+                              color: COLOR_PRIMARY,
+                              fontSize: 12.0,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ],
