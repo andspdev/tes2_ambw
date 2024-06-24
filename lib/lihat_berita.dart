@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tes2_ambw/fragment/Beranda.dart';
 import 'package:tes2_ambw/fragment/baca_nanti.dart';
+import 'package:tes2_ambw/fragment/kategori.dart';
 import 'package:tes2_ambw/fragment/pencarian.dart';
 import 'package:tes2_ambw/includes/functions.dart';
 import 'includes/variables.dart';
@@ -71,6 +72,7 @@ class _ViewNews extends State<ViewNews> {
     const Beranda(),
     const BacaNanti(),
     const Pencarian(),
+    const Kategori(),
   ];
 
   @override

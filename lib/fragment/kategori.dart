@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -93,10 +91,10 @@ class _KategoriState extends State<Kategori> {
 
                   return GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, // Set the number of columns
+                      crossAxisCount: getCrossAxisCount(context), // Set the number of columns
                       crossAxisSpacing: 8.0,
                       mainAxisSpacing: 8.0,
-                      childAspectRatio: 0.8, // Adjust the aspect ratio
+                      childAspectRatio: getAspectRatioForKategori(context), // Adjust the aspect ratio
                     ),
                     itemCount: categories.length,
                     itemBuilder: (context, index) {
@@ -119,14 +117,14 @@ class _KategoriState extends State<Kategori> {
                                   latestImage,
                                   fit: BoxFit.cover,
                                   width: double.infinity,
-                                  height: 175.0, // Adjusted height
+                                  height: getImageHeight(context), // Adjusted height
                                 )
                               else
                                 Image.asset(
                                   ASSET_IMG_THUMBNAIL_LOADER,
                                   fit: BoxFit.cover,
                                   width: double.infinity,
-                                  height: 175.0, // Adjusted height
+                                  height: getImageHeight(context), // Adjusted height
                                 ),
                               Flexible(
                                 child: ListTile(
@@ -261,10 +259,10 @@ class _BeritaPageState extends State<BeritaPage> {
 
               return SliverGrid(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // Number of columns
+                  crossAxisCount: getCrossAxisCount(context), // Number of columns
                   crossAxisSpacing: 8.0,
                   mainAxisSpacing: 8.0,
-                  childAspectRatio: 0.8, // Adjust the aspect ratio
+                  childAspectRatio: getAspectRatio(context), // Adjust the aspect ratio
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {

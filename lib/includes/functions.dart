@@ -200,6 +200,33 @@ double getAspectRatio(BuildContext context) {
   }
 }
 
+double getAspectRatioForKategori(BuildContext context) {
+  final double screenWidth = MediaQuery.of(context).size.width;
+  print('Width: ${MediaQuery.of(context).size.width}');
+  if (screenWidth >= 1110) {
+    final double hasil = ((screenWidth * 0.38) / 1000) * 2;
+    return (hasil);
+  } else if (screenWidth >= 1000) {
+    final double hasil = ((screenWidth * 0.47) / 1000) * 2;
+    return (hasil);
+  } else if (screenWidth >= 800) {
+    final double hasil = ((screenWidth * 0.57) / 1000) * 2;
+    return (hasil);
+  } else if (screenWidth >= 700) {
+    final double hasil = ((screenWidth * 0.75) / 1000) * 2;
+    return (hasil);
+  } else if (screenWidth >= 500) {
+    final double hasil = ((screenWidth * 0.9) / 1000) * 2;
+    return (hasil);
+  } else if (screenWidth >= 340) {
+    final double hasil = ((screenWidth * 1) / 1000) * 2;
+    return (hasil);
+  } else {
+    final double hasil = ((screenWidth * 1.2) / 1000) * 2;
+    return (hasil);
+  }
+}
+
 int getCrossAxisCount(BuildContext context) {
   final double screenWidth = MediaQuery.of(context).size.width;
 
@@ -223,3 +250,4 @@ double getImageHeight(BuildContext context) {
     return hasil;
   }
 }
+

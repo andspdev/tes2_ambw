@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tes2_ambw/includes/variables.dart';
 import 'package:tes2_ambw/lihat_berita.dart';
+import 'package:tes2_ambw/includes/functions.dart';
 
 GestureDetector cardKategori(context, berita, index) {
   return GestureDetector(
@@ -8,7 +9,7 @@ GestureDetector cardKategori(context, berita, index) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => ViewNews(berita: berita[index], page: 0)),
+            builder: (context) => ViewNews(berita: berita[index], page: 3)),
       );
     },
     child: Padding(
@@ -32,6 +33,7 @@ GestureDetector cardKategori(context, berita, index) {
                       child: FadeInImage.assetNetwork(
                         placeholder: ASSET_IMG_THUMBNAIL_LOADER,
                         image: berita[index]['thumbnail'],
+                        height: getImageHeight(context),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -53,7 +55,8 @@ GestureDetector cardKategori(context, berita, index) {
 
               // Details
               Padding(
-                padding: const EdgeInsets.all(12.0), // Increased padding for better spacing
+                padding: const EdgeInsets.all(
+                    12.0), // Increased padding for better spacing
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -74,9 +77,12 @@ GestureDetector cardKategori(context, berita, index) {
                     // Waktu dibuat
                     Row(
                       children: [
-                        Icon(Icons.access_time, size: 14.0, color: Colors.grey[600]),
+                        Icon(Icons.access_time,
+                            size: 14.0, color: Colors.grey[600]),
                         const SizedBox(width: 4.0),
                         Text(
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           "${berita[index]['dibuat_pada']}",
                           style: const TextStyle(
                             color: COLOR_PRIMARY,
